@@ -13,14 +13,19 @@ app.config(function ($stateProvider) {
 });
 
 //main controller
-app.controller('MainController', ['$scope', 'products', function ($scope, products) {}]);
+app.controller('MainController', ['$scope', 'products', function ($scope, products) {
+	console.log(products);
+	products.getSwills().then(function (data) {
+		console.log('obj');
+	});
+}]);
 
 //initial ajax call
-app.factory('products', ['$http', function ($http) {
+app.factory('products', ['$http', '$q', function ($http, $q) {
 	var API_KEY = 'MDo3NTJjYzBmMC04ZWU2LTExZTUtYjkxYy04M2IwMzZlMmUwYTc6V1hLeXQ3cWRlYVFoRzFzZFF2NVdrM3JqTk9EN3l0aXRMc3d5';
 	var API_URL = 'http://lcboapi.com/products?access_key=';
 	var isDead = '&where_not=is_discontinued';
-	var perPage = '&per_page=200';
+	var perPage = '&per_page=100';
 	var swill = '&q=';
 	var endpoint = API_URL + API_KEY + isDead + perPage + swill;
 	return {
@@ -30,9 +35,8 @@ app.factory('products', ['$http', function ($http) {
 			//			make ajax request
 			$http.get(endpoint)
 			//			on success send data
-			.then(def.resolve)
+			.then(def.resolve, def.reject);
 			//			on error reject message
-			.error(def.reject);
 
 			return def.promise;
 		}

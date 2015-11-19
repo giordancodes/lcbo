@@ -13,15 +13,18 @@ app.config( ($stateProvider) => {
 
 //main controller
 app.controller('MainController', ['$scope', 'products', ($scope, products) => {
-	
+	console.log(products);
+	products.getSwills().then((data) => {
+		console.log('obj');
+	})
 }]);
 
 //initial ajax call
-app.factory('products', ['$http', ($http) => {
-	let API_KEY = 'MDo3NTJjYzBmMC04ZWU2LTExZTUtYjkxYy04M2IwMzZlMmUwYTc6V1hLeXQ3cWRlYVFoRzFzZFF2NVdrM3JqTk9EN3l0aXRMc3d5';
-	let API_URL = 'http://lcboapi.com/products?access_key=';
+app.factory('products', ['$http', '$q', ($http, $q) => {
+	const API_KEY = 'MDo3NTJjYzBmMC04ZWU2LTExZTUtYjkxYy04M2IwMzZlMmUwYTc6V1hLeXQ3cWRlYVFoRzFzZFF2NVdrM3JqTk9EN3l0aXRMc3d5';
+	const API_URL = 'http://lcboapi.com/products?access_key=';
 	let isDead = '&where_not=is_discontinued';
-	let perPage = '&per_page=200';
+	let perPage = '&per_page=100';
 	let swill = '&q=';
 	let endpoint = API_URL + API_KEY + isDead + perPage + swill;
 	return {
@@ -31,9 +34,8 @@ app.factory('products', ['$http', ($http) => {
 //			make ajax request
 			$http.get(endpoint)
 //			on success send data
-				.then(def.resolve)
+				.then(def.resolve,def.reject);
 //			on error reject message
-				.error(def.reject);
 			
 			return def.promise;
 		}
