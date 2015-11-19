@@ -44,50 +44,52 @@
 	</section>
 	
 	<section class="selection">
-		<div class="wrapper">
-			<h3>I'm looking for:</h3>
-			<select name="booze" id="booze">
-				<option value="choose" selected disabled>Choose Swill...</option>
-				<option value="beer">Beer</option>
-				<option value="wine">Wine</option>
-				<option value="whiskey">Whiskey</option>
-				<option value="vodka">Vodks</option>
-				<option value="rum">Rum</option>
-				<option value="coolers">Coolers</option>
-			</select>
-		</div>
-		<div class="selectionTitle">
+		<form action="">
 			<div class="wrapper">
-				<h2>That meets these criteria:</h2>
+				<h3>I'm looking for:</h3>
+				<select name="booze" id="booze">
+					<option value="choose" selected disabled>Choose Swill...</option>
+					<option value="beer">Beer</option>
+					<option value="wine">Wine</option>
+					<option value="whiskey">Whiskey</option>
+					<option value="vodka">Vodks</option>
+					<option value="rum">Rum</option>
+					<option value="coolers">Coolers</option>
+				</select>
 			</div>
-		</div>
-			<div class="wrapper checkboxes">
-				<label for="onSale"><input type="checkbox" id="onSale">On Sale</label>
-				<label for="limOffer"><input type="checkbox" id="limOffer">Limited Offer</label>
-				<label for="bonusMiles"><input type="checkbox" id="bonusMiles">Bonus Reward Miles</label>
-				<label for="promo"><input type="checkbox" id="promo">Added Promo</label>
-				<label for="seasonal"><input type="checkbox" id="seasonal">Seasonal</label>
-				<label for="kosher"><input type="checkbox" id="kosher">Kosher</label>
+			<div class="selectionTitle">
+				<div class="wrapper">
+					<h2>That meets these criteria:</h2>
+				</div>
 			</div>
-		<div class="selectionTitle">
-			<div class="wrapper">
-				<h2>Price per liter of alcohol in cents less than:</h2>
+				<div class="wrapper checkboxes">
+					<label for="onSale"><input type="checkbox" id="onSale">On Sale</label>
+					<label for="limOffer"><input type="checkbox" id="limOffer">Limited Offer</label>
+					<label for="bonusMiles"><input type="checkbox" id="bonusMiles">Bonus Reward Miles</label>
+					<label for="promo"><input type="checkbox" id="promo">Added Promo</label>
+					<label for="seasonal"><input type="checkbox" id="seasonal">Seasonal</label>
+					<label for="kosher"><input type="checkbox" id="kosher">Kosher</label>
+				</div>
+			<div class="selectionTitle">
+				<div class="wrapper">
+					<h2>Price per liter of alcohol in cents less than:</h2>
+				</div>
 			</div>
-		</div>
-		<div class="inputArea wrapper">
-			<input type="number" placeholder="Price in cents...">
-		</div>
-		<div class="selectionTitle">
-			<div class="wrapper">
-				<h2>Price per liter of liquid in cents less than:</h2>
+			<div class="inputArea wrapper">
+				<input type="number" placeholder="Price in cents...">
 			</div>
-		</div>
-		<div class="inputArea wrapper">
-			<input type="number" placeholder="Price in cents...">
-		</div>
-		<div class="slurp">
-			<button class='slurp'>Slurp!</button>
-		</div>
+			<div class="selectionTitle">
+				<div class="wrapper">
+					<h2>Price per liter of liquid in cents less than:</h2>
+				</div>
+			</div>
+			<div class="inputArea wrapper">
+				<input type="number" placeholder="Price in cents...">
+			</div>
+			<div class="slurp">
+				<button class='slurp'>Slurp!</button>
+			</div>
+		</form>
 	</section>
 
 	<main ng-controller="MainController">
@@ -96,7 +98,7 @@
 	
 	<footer>
 		<p>code &copy; 2015 <a href="http://giordan.ca">Giordan Battaglin</a></p>
-		<p class='lcboCred'>harnesses the <img src="/assets/lcboapi.png" alt="LCBO API logo"></p>
+		<p class='lcboCred'>harnesses <a href="https://lcboapi.com"><img src="/assets/lcboapi.png" alt="LCBO API logo"></a></p>
 	</footer>
 	
 	
