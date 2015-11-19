@@ -13,14 +13,7 @@ app.config(function ($stateProvider) {
 });
 
 //main controller
-app.controller('MainController', ['$scope', function ($scope) {}]);
-
-//app.directive('singleSwill', () => {
-//	return {
-//		restrict: 'E',
-//		templateUrl: '/js'
-//	}
-//});
+app.controller('MainController', ['$scope', 'products', function ($scope, products) {}]);
 
 //initial ajax call
 app.factory('products', ['$http', function ($http) {
@@ -30,10 +23,26 @@ app.factory('products', ['$http', function ($http) {
 	var perPage = '&per_page=200';
 	var swill = '&q=';
 	var endpoint = API_URL + API_KEY + isDead + perPage + swill;
-	return;
-	$http.get(endpoint).success(function (data) {
-		return data;
-	}).error(function (err) {
-		return err;
-	});
+	return {
+		getSwills: function getSwills() {
+			var def = $q.defer();
+
+			//			make ajax request
+			$http.get(endpoint)
+			//			on success send data
+			.then(def.resolve)
+			//			on error reject message
+			.error(def.reject);
+
+			return def.promise;
+		}
+	};
+	//	
+	//			$http.get( endpoint )
+	//			.then((data) => {
+	//				return data;
+	//	})
+	//			.error((err) => {
+	//				return err;
+	//	})
 }]);
