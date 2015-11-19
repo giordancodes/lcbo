@@ -15,7 +15,7 @@ app.config( ($stateProvider) => {
 app.controller('MainController', ['$scope', 'products', ($scope, products) => {
 	console.log(products);
 	products.getSwills().then((data) => {
-		console.log('obj');
+		console.log(data);
 	})
 }]);
 
@@ -33,19 +33,11 @@ app.factory('products', ['$http', '$q', ($http, $q) => {
 			
 //			make ajax request
 			$http.get(endpoint)
-//			on success send data
-				.then(def.resolve,def.reject);
-//			on error reject message
+//			on success send data, on error reject message
+				.then(def.resolve,def.reject);			
 			
 			return def.promise;
 		}
 	}
-//	
-//			$http.get( endpoint )
-//			.then((data) => {
-//				return data;
-//	})
-//			.error((err) => {
-//				return err;
-//	})
+
 }]);
