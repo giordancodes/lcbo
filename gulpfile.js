@@ -43,7 +43,7 @@ gulp.task('app', function () {
 		.pipe(babel({
 			presets: ['babel-preset-es2015']
 		}))
-		.pipe(concat('main.min.js'))
+		.pipe(concat('app.min.js'))
 		.pipe(uglify())
 		.pipe(gulp.dest('./js'))
 		.pipe(reload({stream:true}));
