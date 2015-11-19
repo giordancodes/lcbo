@@ -36,15 +36,11 @@ gulp.task('styles', function() {
 });
 
 gulp.task('app', function () {
-	return gulp.src('./js/**/*.js')
-		.pipe(plumber({
-		  errorHandler: notify.onError("Error: <%= error.message %>")
-		}))
+	gulp.src('./js/**/*.esnext.js')
 		.pipe(babel({
 			presets: ['babel-preset-es2015']
 		}))
-		.pipe(concat('app.min.js'))
-		.pipe(uglify())
+		.pipe(concat('script.js'))
 		.pipe(gulp.dest('./js'))
 		.pipe(reload({stream:true}));
 });

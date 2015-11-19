@@ -91,10 +91,17 @@
 			</div>
 		</form>
 	</section>
-
-	<main class="results" ng-controller="MainCtrl">
+	
+<!--
+	<div class="separate" ng-controller="TestController">
 		
+	</div>
+-->
+
+	<main class="results" ng-controller="MainController">
+		<p ng-repeat="item in items">{{ item }}</p>
 	</main>
+	
 	
 	<footer>
 		<p>code &copy; 2015 <a href="http://giordan.ca">Giordan Battaglin</a></p>
@@ -108,6 +115,6 @@
 	
 	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
-	<script src="/js/app.min.js"></script>
+	<script src="/js/script.js"></script>
 </body>
 </html>

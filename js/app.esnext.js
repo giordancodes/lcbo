@@ -2,8 +2,8 @@ let app = angular.module('swillApp', []);
 
 let ACCESS_KEY = 'MDo3NTJjYzBmMC04ZWU2LTExZTUtYjkxYy04M2IwMzZlMmUwYTc6V1hLeXQ3cWRlYVFoRzFzZFF2NVdrM3JqTk9EN3l0aXRMc3d5';
 
-app.controller('MainCtrl', ['$scope', ($scope) => {
-	
+app.controller('MainController', ['$scope', ($scope) => {
+	$scope.items = [1,4,2,3];
 }]);
 
 app.factory('products', ['$http', ($http) => {
