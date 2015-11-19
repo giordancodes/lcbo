@@ -1,6 +1,7 @@
 var gulp   = require('gulp'),
 		browserSync = require('browser-sync'),
 		reload = browserSync.reload,
+		babel = require('gulp-babel'),
 		autoprefixer = require('gulp-autoprefixer'),
 		concat = require('gulp-concat'),
 		imageMin = require('gulp-imagemin'),
@@ -34,10 +35,13 @@ gulp.task('styles', function() {
 		.pipe(reload({ stream: true }));
 });
 
-gulp.task('scripts', function () {
-	return gulp.src('./js/scripts.js')
+gulp.task('app', function () {
+	return gulp.src('./js/**/*.js')
 		.pipe(plumber({
 		  errorHandler: notify.onError("Error: <%= error.message %>")
+		}))
+		.pipe(babel({
+			presets: ['babel-preset-es2015']
 		}))
 		.pipe(concat('main.min.js'))
 		.pipe(uglify())
@@ -54,9 +58,8 @@ gulp.task('images', function () {
 // configure which files to watch and what tasks to use on file changes
 gulp.task('watch', function() {
 	gulp.watch('sass/**/*.scss', ['styles']);
-	gulp.watch('./js/**/*.js', ['scripts']);
+	gulp.watch('./js/**/*.js', ['app']);
 	gulp.watch('./**/*.html', reload);
-	gulp.watch('./**/*.js', reload);
 });
 
-gulp.task('default', ['styles', 'scripts', 'images', 'bs', 'watch']);
+gulp.task('default', ['styles', 'app', 'images', 'bs', 'watch']);

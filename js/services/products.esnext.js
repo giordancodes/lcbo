@@ -1,4 +1,4 @@
-var ACCESS_KEY = 'MDoyNmNiMWU2Ni04ZTRiLTExZTUtYTM1Ny01MzgyMzIyOWU5ZmQ6ck5MWkI2TWt2d21RQnhRRm1lZ293ZUh1cmF4QTNCWlk2QlNi';
+let ACCESS_KEY = 'MDo3NTJjYzBmMC04ZWU2LTExZTUtYjkxYy04M2IwMzZlMmUwYTc6V1hLeXQ3cWRlYVFoRzFzZFF2NVdrM3JqTk9EN3l0aXRMc3d5';
 app.factory('products', ['$http', function($http){
 	return $http.get('http://lcboapi.com/products?access_key=' + API_KEY)
 			.success(function(data){
