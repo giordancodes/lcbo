@@ -47,15 +47,17 @@
 		<form action="">
 			<div class="wrapper">
 				<h3>I'm looking for:</h3>
-				<select name="booze" id="booze">
-					<option value="choose" selected disabled>Choose Swill...</option>
+				<select name="swill" ng-model="swill" id="swill">
+					<option value="choose" disabled>Choose Swill...</option>
 					<option value="beer">Beer</option>
-					<option value="wine">Wine</option>
+					<option value="redWine">Red Wine</option>
+					<option value="whiteWine">White Wine</option>
 					<option value="whiskey">Whiskey</option>
-					<option value="vodka">Vodks</option>
+					<option value="vodka">Vodka</option>
 					<option value="rum">Rum</option>
 					<option value="coolers">Coolers</option>
 				</select>
+				<p>{{ swill }}</p>
 			</div>
 			<div class="selectionTitle">
 				<div class="wrapper">
@@ -69,6 +71,7 @@
 					<label for="promo"><input type="checkbox" id="promo">Added Promo</label>
 					<label for="seasonal"><input type="checkbox" id="seasonal">Seasonal</label>
 					<label for="kosher"><input type="checkbox" id="kosher">Kosher</label>
+					<label for="clearance"><input type="checkbox" id="kosher">Clearance Sale</label>
 				</div>
 			<div class="selectionTitle">
 				<div class="wrapper">
@@ -92,9 +95,7 @@
 		</form>
 	</section>
 
-	<main class="results" ng-controller="MainController">
-		<p></p>
-	</main>
+	<section class='results' ui-view></section>
 	
 	
 	<footer>
