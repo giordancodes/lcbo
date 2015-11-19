@@ -40,7 +40,7 @@ gulp.task('app', function () {
 		.pipe(babel({
 			presets: ['babel-preset-es2015']
 		}))
-		.pipe(concat('script.js'))
+		.pipe(concat('app.js'))
 		.pipe(gulp.dest('./js'))
 		.pipe(reload({stream:true}));
 });
