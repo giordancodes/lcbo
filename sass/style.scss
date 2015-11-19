@@ -18,6 +18,16 @@ html{
 
 body{
 	background: $green;
+	font-family: $questrial;
+}
+
+a{
+	text-decoration: none;
+	color: $white;
+	transition: color .6s;
+	&:hover{
+		color: $brown;
+	}
 }
 
 //typography typography typography typography typography typography typography 
@@ -45,6 +55,7 @@ h3{
 	font-family: $questrial;
 	font-size: 2rem;
 	color: $black;
+	font-weight: 300;
 	letter-spacing: 1px;
 	line-height: 15px;
 	margin: 0;
@@ -86,7 +97,8 @@ button{
 	padding: 1rem 3rem;
 	color: $white;
 	font-family: $questrial;
-	margin: 0 auto;
+	font-weight: 900;
+	margin: 1rem 0;
 	font-size: 1.8rem;
 	border-radius: .5rem;
 }
@@ -95,7 +107,7 @@ button{
 	margin-right: .6rem;
 }
 
-[type='textarea']{
+[type='number']{
 	background: #CAC3B9;
 	border-radius: 3px;
 	width: 100%;
@@ -127,7 +139,6 @@ header{
 	padding: 1.5rem;
 	img{
 		height: 149px;
-		width: 50%;
 	}
 	h1{
 		text-align: right;
@@ -147,6 +158,10 @@ section.info{
 	background: $brown;
 }
 
+section.selection{
+	padding: 2rem 0;
+}
+
 .selectionTitle {
 	padding: 1rem 0;
 	background: $brown;
@@ -154,6 +169,39 @@ section.info{
 
 .inputArea {
 	padding: 2rem 0;
+}
+
+main{
+	position: relative;
+}
+
+//footer footer footer footer footer footer footer footer footer footer 
+
+footer{
+	background: $black;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	color: $white;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	p{
+		font-size: 1.2rem;
+		margin: 1rem 0;
+	}
+	img{
+		height: 1rem;
+		margin-left: .5rem;
+	}
+	.lcboCred{
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		padding: 0;
+	}
 }
 
 //media queries media queries media queries media queries media queries 
