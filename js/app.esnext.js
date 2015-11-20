@@ -13,30 +13,44 @@ app.config(($stateProvider) => {
 
 //main controller
 app.controller('MainController', ['$scope', 'products', ($scope, products) => {
-	
-	console.log(products);
-	
+		
 //	model for checkbox inputs
 	$scope.checkboxModel = {
-		onSale: false,
-		limOffer: false,
-		bonusMiles: false,
-		promo: false,
-		seasonal: false,
-		kosher: false,
-		clearance: false
+		onSale :{
+			'&=has_limited_time_offer=': false
+		},
+		bonusMiles :{
+			'&=has_bonus_reward_miles=': false
+		},
+		promo :{
+			'&=has_value_added_promotion=': false
+		},
+		seasonal :{
+			'&=is_seasonal=': false
+		},
+		kosher :{
+			'&=is_kosher=': false
+		},
+		clearance :{
+			'&=has_clearance_sale=': false
+		}
 	};
 	
 //		form submit
 	$scope.formSubmit = () => {
 		let searchSelection = [];
-		angular.forEach($scope.checkboxModel, (val, key) => {
-			console.log(val);
-		});
 		
-		console.log($scope.checkboxModel);
+//		loop through each checkbox and only pass checked criteria through to ajax call
+					
+		for (let key in $scope.checkboxModel){
+				for (let item in $scope.checkboxModel[key]){
+					console.log(item, $scope.checkboxModel[key][item]);
+					searchSelection.push(item, $scope.checkboxModel[key][item])
+				}
+			};
+		
+		console.log(searchSelection);
 		console.log($scope.swill);
-		products.getSwills($scope.checkboxModel)
 	},
 		
 	products.getSwills().then((data) => {
@@ -52,6 +66,10 @@ app.factory('products', ['$http', '$q', ($http, $q) => {
 	let perPage = '&per_page=100';
 	let type = '&q=';
 	let endpoint = API_URL + API_KEY + isDead + perPage + type;
+	let proxy = {
+		
+	};
+	
 	return {
 		getSwills() {
 			let def = $q.defer();
