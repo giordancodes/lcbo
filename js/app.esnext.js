@@ -29,7 +29,13 @@ app.controller('MainController', ['$scope', 'products', ($scope, products) => {
 	
 //		form submit
 	$scope.formSubmit = () => {
+		let searchSelection = [];
+		angular.forEach($scope.checkboxModel, (val, key) => {
+			console.log(val);
+		});
+		
 		console.log($scope.checkboxModel);
+		console.log($scope.swill);
 		products.getSwills($scope.checkboxModel)
 	},
 		
@@ -44,18 +50,24 @@ app.factory('products', ['$http', '$q', ($http, $q) => {
 	const API_URL = 'http://lcboapi.com/products?access_key=';
 	let isDead = '&where_not=is_discontinued';
 	let perPage = '&per_page=100';
-	let swill = '&q=';
-	let endpoint = API_URL + API_KEY + isDead + perPage + swill;
+	let type = '&q=';
+	let endpoint = API_URL + API_KEY + isDead + perPage + type;
 	return {
 		getSwills() {
 			let def = $q.defer();
 			
 //			make ajax request
-			$http.get(endpoint)
+			$http.get(`${endpoint}`)
 //			on success send data, on error reject message
 				.then(def.resolve,def.reject);			
 			
 			return def.promise;
+		},
+		
+		searchSwills(query){
+			let def = $q.defer();
+			
+			$http.get(`${endpoint}`)
 		}
 	}
 
