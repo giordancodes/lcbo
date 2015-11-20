@@ -57,7 +57,7 @@
 					<option value="rum">Rum</option>
 					<option value="coolers">Coolers</option>
 				</select>
-				<p>{{ swill }}</p>
+				<p> {{ swill }} </p>
 			</div>
 			<div class="selectionTitle">
 				<div class="wrapper">
@@ -65,13 +65,13 @@
 				</div>
 			</div>
 				<div class="wrapper checkboxes">
-					<label for="onSale"><input type="checkbox" id="onSale">On Sale</label>
-					<label for="limOffer"><input type="checkbox" id="limOffer">Limited Offer</label>
-					<label for="bonusMiles"><input type="checkbox" id="bonusMiles">Bonus Reward Miles</label>
-					<label for="promo"><input type="checkbox" id="promo">Added Promo</label>
-					<label for="seasonal"><input type="checkbox" id="seasonal">Seasonal</label>
-					<label for="kosher"><input type="checkbox" id="kosher">Kosher</label>
-					<label for="clearance"><input type="checkbox" id="kosher">Clearance Sale</label>
+					<label for="onSale"><input type="checkbox" ng-model="checkboxModel.onSale">On Sale</label>
+					<label for="limOffer"><input type="checkbox" ng-model="checkboxModel.limOffer">Limited Offer</label>
+					<label for="bonusMiles"><input type="checkbox" ng-model="checkboxModel.bonusMiles">Bonus Reward Miles</label>
+					<label for="promo"><input type="checkbox" ng-model="checkboxModel.promo">Added Promo</label>
+					<label for="seasonal"><input type="checkbox" ng-model="checkboxModel.seasonal">Seasonal</label>
+					<label for="kosher"><input type="checkbox" ng-model="checkboxModel.kosher">Kosher</label>
+					<label for="clearance"><input type="checkbox" ng-model="checkboxModel.clearance">Clearance Sale</label>
 				</div>
 			<div class="selectionTitle">
 				<div class="wrapper">

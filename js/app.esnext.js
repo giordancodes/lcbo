@@ -2,7 +2,7 @@
 let app = angular.module('swillApp', ['ui.router']);
 
 //config stateprovider
-app.config( ($stateProvider) => {
+app.config(($stateProvider) => {
 	$stateProvider
 		.state('index', {
 			url: '',
@@ -13,7 +13,19 @@ app.config( ($stateProvider) => {
 
 //main controller
 app.controller('MainController', ['$scope', 'products', ($scope, products) => {
+	
 	console.log(products);
+	
+//	model for checkbox inputs
+	$scope.checkboxModel = {
+		onSale: false,
+		limOffer: false,
+		bonusMiles: false,
+		promo: false,
+		seasonal: false,
+		kosher: false,
+		clearance: false
+	},
 	products.getSwills().then((data) => {
 		console.log(data);
 	})

@@ -14,8 +14,19 @@ app.config(function ($stateProvider) {
 
 //main controller
 app.controller('MainController', ['$scope', 'products', function ($scope, products) {
+
 	console.log(products);
-	products.getSwills().then(function (data) {
+
+	//	model for checkbox inputs
+	$scope.checkboxModel = {
+		onSale: false,
+		limOffer: false,
+		bonusMiles: false,
+		promo: false,
+		seasonal: false,
+		kosher: false,
+		clearance: false
+	}, products.getSwills().then(function (data) {
 		console.log(data);
 	});
 }]);
