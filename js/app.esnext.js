@@ -25,7 +25,14 @@ app.controller('MainController', ['$scope', 'products', ($scope, products) => {
 		seasonal: false,
 		kosher: false,
 		clearance: false
+	};
+	
+//		form submit
+	$scope.formSubmit = () => {
+		console.log($scope.checkboxModel);
+		products.getSwills($scope.checkboxModel)
 	},
+		
 	products.getSwills().then((data) => {
 		console.log(data);
 	})

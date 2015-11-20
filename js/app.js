@@ -26,6 +26,12 @@ app.controller('MainController', ['$scope', 'products', function ($scope, produc
 		seasonal: false,
 		kosher: false,
 		clearance: false
+	};
+
+	//		form submit
+	$scope.formSubmit = function () {
+		console.log($scope.checkboxModel);
+		products.getSwills($scope.checkboxModel);
 	}, products.getSwills().then(function (data) {
 		console.log(data);
 	});

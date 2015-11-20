@@ -44,7 +44,7 @@
 	</section>
 	
 	<section class="selection">
-		<form action="">
+		<form ng-submit="formSubmit()" ng-controller="MainController">
 			<div class="wrapper">
 				<h3>I'm looking for:</h3>
 				<select name="swill" ng-model="swill" id="swill">
@@ -90,12 +90,12 @@
 				<input type="number" placeholder="Price in cents...">
 			</div>
 			<div class="slurp">
-				<button class='slurp'>Slurp!</button>
+				<button type="submit" value="Submit">Slurp!</button>
 			</div>
 		</form>
 	</section>
 
-	<section class='results' ui-view></section>
+<!--	<section class='results' ui-view></section>-->
 	
 	
 	<footer>
