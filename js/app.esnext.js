@@ -22,6 +22,9 @@ app.controller('MainController', ['$scope', 'products', ($scope, products) => {
 		bonusMiles :{
 			'&=has_bonus_reward_miles=': false
 		},
+		clearance :{
+			'&=has_clearance_sale=': false
+		},
 		promo :{
 			'&=has_value_added_promotion=': false
 		},
@@ -30,9 +33,6 @@ app.controller('MainController', ['$scope', 'products', ($scope, products) => {
 		},
 		kosher :{
 			'&=is_kosher=': false
-		},
-		clearance :{
-			'&=has_clearance_sale=': false
 		}
 	};
 	
@@ -48,7 +48,8 @@ app.controller('MainController', ['$scope', 'products', ($scope, products) => {
 					searchSelection.push(item, $scope.checkboxModel[key][item])
 				}
 			};
-		
+		searchSelection = searchSelection.join();
+		searchSelection = searchSelection.replace(/,/g, '');
 		console.log(searchSelection);
 		console.log($scope.swill);
 	},

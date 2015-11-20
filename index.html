@@ -64,12 +64,12 @@
 				</div>
 			</div>
 				<div class="wrapper checkboxes">
-					<label for="onSale"><input type="checkbox" ng-model="checkboxModel.onSale.key">On Sale</label>
-					<label for="bonusMiles"><input type="checkbox" ng-model="checkboxModel.bonusMiles">Bonus Reward Miles</label>
-					<label for="clearance"><input type="checkbox" ng-model="checkboxModel.clearance">Clearance Sale</label>
-					<label for="promo"><input type="checkbox" ng-model="checkboxModel.promo">Added Promo</label>
-					<label for="seasonal"><input type="checkbox" ng-model="checkboxModel.seasonal">Seasonal</label>
-					<label for="kosher"><input type="checkbox" ng-model="checkboxModel.kosher">Kosher</label>
+					<label for="onSale"><input type="checkbox" ng-model="checkboxModel.onSale['&=has_limited_time_offer=']">On Sale</label>
+					<label for="bonusMiles"><input type="checkbox" ng-model="checkboxModel.bonusMiles['&=has_bonus_reward_miles=']">Bonus Reward Miles</label>
+					<label for="clearance"><input type="checkbox" ng-model="checkboxModel.clearance['&=has_clearance_sale=']">Clearance Sale</label>
+					<label for="promo"><input type="checkbox" ng-model="checkboxModel.promo['&=has_value_added_promotion=']">Added Promo</label>
+					<label for="seasonal"><input type="checkbox" ng-model="checkboxModel.seasonal['&=is_seasonal=']">Seasonal</label>
+					<label for="kosher"><input type="checkbox" ng-model="checkboxModel.kosher['&=is_kosher=']">Kosher</label>
 				</div>
 			<div class="selectionTitle">
 				<div class="wrapper">

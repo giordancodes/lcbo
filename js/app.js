@@ -23,6 +23,9 @@ app.controller('MainController', ['$scope', 'products', function ($scope, produc
 		bonusMiles: {
 			'&=has_bonus_reward_miles=': false
 		},
+		clearance: {
+			'&=has_clearance_sale=': false
+		},
 		promo: {
 			'&=has_value_added_promotion=': false
 		},
@@ -31,9 +34,6 @@ app.controller('MainController', ['$scope', 'products', function ($scope, produc
 		},
 		kosher: {
 			'&=is_kosher=': false
-		},
-		clearance: {
-			'&=has_clearance_sale=': false
 		}
 	};
 
@@ -49,7 +49,8 @@ app.controller('MainController', ['$scope', 'products', function ($scope, produc
 				searchSelection.push(item, $scope.checkboxModel[key][item]);
 			}
 		};
-
+		searchSelection = searchSelection.join();
+		searchSelection = searchSelection.replace(/,/g, '');
 		console.log(searchSelection);
 		console.log($scope.swill);
 	}, products.getSwills().then(function (data) {
