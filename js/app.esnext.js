@@ -14,7 +14,7 @@ app.config(($stateProvider) => {
 //main controller
 app.controller('MainController', ['$scope', 'products', ($scope, products) => {
 		
-//	model for checkbox inputs
+//	model for checkbox inputs 	
 	$scope.checkboxModel = {
 		onSale :{
 			'&=has_limited_time_offer=': false
@@ -52,7 +52,7 @@ app.controller('MainController', ['$scope', 'products', ($scope, products) => {
 		console.log(searchSelection);
 	},
 		
-	products.getSwillsAjax().then((data) => {
+	products.getSwills().then((data) => {
 		console.log(data);
 	})
 }]);
@@ -78,7 +78,7 @@ app.factory('products', ['$http', '$q', ($http, $q) => {
 			let def = $q.defer();
 			
 //			make ajax request
-			$http.get(proxy)
+			$http(proxy)
 //			on success send data, on error reject message
 				.then(def.resolve,def.reject);			
 			
@@ -88,20 +88,7 @@ app.factory('products', ['$http', '$q', ($http, $q) => {
 		searchSwills(query){
 			let def = $q.defer();
 			
-			$http.get(proxy)
-		},
-		
-		getSwillsAjax(){
-			$.ajax({
-				url: 'http://proxy.hackeryou.com',
-				method:'GET',
-				data: {
-						reqUrl: endpoint
-				}
-		}).then(function(res) {
-			console.log(res);	
-		});
-		
+			$http(proxy)
 		}
 		
 	}

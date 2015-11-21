@@ -15,7 +15,7 @@ app.config(function ($stateProvider) {
 //main controller
 app.controller('MainController', ['$scope', 'products', function ($scope, products) {
 
-	//	model for checkbox inputs
+	//	model for checkbox inputs 	
 	$scope.checkboxModel = {
 		onSale: {
 			'&=has_limited_time_offer=': false
@@ -51,7 +51,7 @@ app.controller('MainController', ['$scope', 'products', function ($scope, produc
 		searchSelection = searchSelection.join();
 		searchSelection = searchSelection.replace(/,/g, '');
 		console.log(searchSelection);
-	}, products.getSwillsAjax().then(function (data) {
+	}, products.getSwills().then(function (data) {
 		console.log(data);
 	});
 }]);
@@ -77,7 +77,7 @@ app.factory('products', ['$http', '$q', function ($http, $q) {
 			var def = $q.defer();
 
 			//			make ajax request
-			$http.get(proxy)
+			$http(proxy)
 			//			on success send data, on error reject message
 			.then(def.resolve, def.reject);
 
@@ -86,18 +86,7 @@ app.factory('products', ['$http', '$q', function ($http, $q) {
 		searchSwills: function searchSwills(query) {
 			var def = $q.defer();
 
-			$http.get(proxy);
-		},
-		getSwillsAjax: function getSwillsAjax() {
-			$.ajax({
-				url: 'http://proxy.hackeryou.com',
-				method: 'GET',
-				data: {
-					reqUrl: endpoint
-				}
-			}).then(function (res) {
-				console.log(res);
-			});
+			$http(proxy);
 		}
 	};
 }]);
