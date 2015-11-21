@@ -41,24 +41,22 @@ app.controller('MainController', ['$scope', 'products', function ($scope, produc
 	$scope.formSubmit = function () {
 		var searchSelection = [];
 
-		//		loop through each checkbox and only pass checked criteria through to ajax call
+		//		loop through each checkbox and pass checked criteria through to ajax call
 
 		for (var key in $scope.checkboxModel) {
 			for (var item in $scope.checkboxModel[key]) {
-				console.log(item, $scope.checkboxModel[key][item]);
 				searchSelection.push(item, $scope.checkboxModel[key][item]);
 			}
 		};
 		searchSelection = searchSelection.join();
 		searchSelection = searchSelection.replace(/,/g, '');
 		console.log(searchSelection);
-		console.log($scope.swill);
-	}, products.getSwills().then(function (data) {
+	}, products.getSwillsAjax().then(function (data) {
 		console.log(data);
 	});
 }]);
 
-//initial ajax call
+// ajax calls
 app.factory('products', ['$http', '$q', function ($http, $q) {
 	var API_KEY = 'MDo3NTJjYzBmMC04ZWU2LTExZTUtYjkxYy04M2IwMzZlMmUwYTc6V1hLeXQ3cWRlYVFoRzFzZFF2NVdrM3JqTk9EN3l0aXRMc3d5';
 	var API_URL = 'http://lcboapi.com/products?access_key=';
@@ -66,14 +64,20 @@ app.factory('products', ['$http', '$q', function ($http, $q) {
 	var perPage = '&per_page=100';
 	var type = '&q=';
 	var endpoint = API_URL + API_KEY + isDead + perPage + type;
-	var proxy = {};
+	var proxy = {
+		method: 'GET',
+		url: 'http://proxy.hackeryou.com',
+		data: {
+			reqUrl: '' + endpoint
+		}
+	};
 
 	return {
 		getSwills: function getSwills() {
 			var def = $q.defer();
 
 			//			make ajax request
-			$http.get('' + endpoint)
+			$http.get(proxy)
 			//			on success send data, on error reject message
 			.then(def.resolve, def.reject);
 
@@ -82,7 +86,18 @@ app.factory('products', ['$http', '$q', function ($http, $q) {
 		searchSwills: function searchSwills(query) {
 			var def = $q.defer();
 
-			$http.get('' + endpoint);
+			$http.get(proxy);
+		},
+		getSwillsAjax: function getSwillsAjax() {
+			$.ajax({
+				url: 'http://proxy.hackeryou.com',
+				method: 'GET',
+				data: {
+					reqUrl: endpoint
+				}
+			}).then(function (res) {
+				console.log(res);
+			});
 		}
 	};
 }]);

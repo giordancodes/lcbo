@@ -40,26 +40,24 @@ app.controller('MainController', ['$scope', 'products', ($scope, products) => {
 	$scope.formSubmit = () => {
 		let searchSelection = [];
 		
-//		loop through each checkbox and only pass checked criteria through to ajax call
+//		loop through each checkbox and pass checked criteria through to ajax call
 					
 		for (let key in $scope.checkboxModel){
 				for (let item in $scope.checkboxModel[key]){
-					console.log(item, $scope.checkboxModel[key][item]);
 					searchSelection.push(item, $scope.checkboxModel[key][item])
 				}
 			};
 		searchSelection = searchSelection.join();
 		searchSelection = searchSelection.replace(/,/g, '');
 		console.log(searchSelection);
-		console.log($scope.swill);
 	},
 		
-	products.getSwills().then((data) => {
+	products.getSwillsAjax().then((data) => {
 		console.log(data);
 	})
 }]);
 
-//initial ajax call
+// ajax calls
 app.factory('products', ['$http', '$q', ($http, $q) => {
 	const API_KEY = 'MDo3NTJjYzBmMC04ZWU2LTExZTUtYjkxYy04M2IwMzZlMmUwYTc6V1hLeXQ3cWRlYVFoRzFzZFF2NVdrM3JqTk9EN3l0aXRMc3d5';
 	const API_URL = 'http://lcboapi.com/products?access_key=';
@@ -68,15 +66,19 @@ app.factory('products', ['$http', '$q', ($http, $q) => {
 	let type = '&q=';
 	let endpoint = API_URL + API_KEY + isDead + perPage + type;
 	let proxy = {
-		
-	};
+			method: 'GET',
+			url: 'http://proxy.hackeryou.com',
+			data:{
+				reqUrl: `${endpoint}`
+			}
+		};
 	
 	return {
 		getSwills() {
 			let def = $q.defer();
 			
 //			make ajax request
-			$http.get(`${endpoint}`)
+			$http.get(proxy)
 //			on success send data, on error reject message
 				.then(def.resolve,def.reject);			
 			
@@ -86,8 +88,22 @@ app.factory('products', ['$http', '$q', ($http, $q) => {
 		searchSwills(query){
 			let def = $q.defer();
 			
-			$http.get(`${endpoint}`)
+			$http.get(proxy)
+		},
+		
+		getSwillsAjax(){
+			$.ajax({
+				url: 'http://proxy.hackeryou.com',
+				method:'GET',
+				data: {
+						reqUrl: endpoint
+				}
+		}).then(function(res) {
+			console.log(res);	
+		});
+		
 		}
+		
 	}
 
 }]);
