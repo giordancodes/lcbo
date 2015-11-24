@@ -63,11 +63,11 @@ app.factory('products', ['$http', '$q', function ($http, $q) {
 	var isDead = '&where_not=is_discontinued';
 	var perPage = '&per_page=100';
 	var type = '&q=';
-	var endpoint = API_URL + API_KEY + isDead + perPage + type;
+	var endpoint = API_URL + API_KEY + isDead + perPage;
 	var proxy = {
 		method: 'GET',
 		url: 'http://proxy.hackeryou.com',
-		data: {
+		params: {
 			reqUrl: '' + endpoint
 		}
 	};
