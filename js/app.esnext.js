@@ -49,10 +49,13 @@ app.controller('MainController', ['$scope', 'products', ($scope, products) => {
 			};
 		searchSelection = searchSelection.join();
 		searchSelection = searchSelection.replace(/,/g, '');
+		searchSelection = searchSelection + '&q=' + $scope.swill;
+
 		console.log(searchSelection);
 	},
 		
-	products.getSwills().then((data) => {
+	products.getSwills($scope.swill).then((data) => {
+		
 		console.log(data.data.result);
 		return data.data.result;
 	})
@@ -64,8 +67,7 @@ app.factory('products', ['$http', '$q', ($http, $q) => {
 	const API_URL = 'http://lcboapi.com/products?access_key=';
 	let isDead = '&where_not=is_discontinued';
 	let perPage = '&per_page=100';
-	let type = '&q=';
-	let endpoint = API_URL + API_KEY + type + isDead + perPage;
+	let endpoint = API_URL + API_KEY + isDead + perPage;
 	let proxy = {
 			method: 'GET',
 			url: 'http://proxy.hackeryou.com',
@@ -75,9 +77,8 @@ app.factory('products', ['$http', '$q', ($http, $q) => {
 		};
 	
 	return {
-		getSwills() {
+		getSwills(query) {
 			let def = $q.defer();
-			
 //			make ajax request
 			$http(proxy)
 //			on success send data, on error reject message
