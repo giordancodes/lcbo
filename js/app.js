@@ -40,7 +40,7 @@ app.controller('MainController', ['$scope', 'products', function ($scope, produc
 	//		form submit
 	$scope.formSubmit = function () {
 		var searchSelection = [];
-
+		console.log(searchSelection);
 		//		loop through each checkbox and pass checked criteria through to ajax call
 
 		for (var key in $scope.checkboxModel) {
@@ -54,12 +54,11 @@ app.controller('MainController', ['$scope', 'products', function ($scope, produc
 			searchSelection = searchSelection + '&q=' + $scope.swill;
 		};
 
-		console.log(searchSelection);
-	}, products.getSwills($scope.searchSelection).then(function (data) {
-
-		console.log(data.data.result);
-		return data.data.result;
-	});
+		products.getSwills(searchSelection).then(function (data) {
+			searchSelection = [];
+			return data.data.result;
+		});
+	};
 }]);
 
 // ajax calls
@@ -79,13 +78,17 @@ app.factory('products', ['$http', '$q', function ($http, $q) {
 
 	return {
 		getSwills: function getSwills(query) {
-			var def = $q.defer();
+			var def = $q.defer(),
+			    proxyQuery = '';
+			console.log(query);
+
 			//			make ajax request, add search params
 			proxy.params.reqUrl = proxy.params.reqUrl + query;
-			console.log(proxy.params.reqUrl);
 			$http(proxy)
 			//			on success send data, on error reject message
 			.then(def.resolve, def.reject);
+			proxy.params.reqUrl = '' + endpoint;
+			console.log(proxy.params.reqUrl);
 			return def.promise;
 		}
 	};
