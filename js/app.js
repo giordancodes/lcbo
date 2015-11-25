@@ -40,23 +40,26 @@ app.controller('MainController', ['$scope', 'products', function ($scope, produc
 	//		form submit
 	$scope.formSubmit = function () {
 		var searchSelection = [];
-		console.log(searchSelection);
 		//		loop through each checkbox and pass checked criteria through to ajax call
 
 		for (var key in $scope.checkboxModel) {
 			for (var item in $scope.checkboxModel[key]) {
 				searchSelection.push(item, $scope.checkboxModel[key][item]);
 			}
-		};
+		}
 		searchSelection = searchSelection.join();
 		searchSelection = searchSelection.replace(/,/g, '');
 		if ($scope.swill !== undefined) {
 			searchSelection = searchSelection + '&q=' + $scope.swill;
-		};
+		}
 
 		products.getSwills(searchSelection).then(function (data) {
+			console.log(data);
 			searchSelection = [];
+			console.log(data.data.result);
 			return data.data.result;
+		}, function (err) {
+			console.log(err);
 		});
 	};
 }]);
@@ -64,7 +67,7 @@ app.controller('MainController', ['$scope', 'products', function ($scope, produc
 // ajax calls
 app.factory('products', ['$http', '$q', function ($http, $q) {
 	var API_KEY = 'MDo3NTJjYzBmMC04ZWU2LTExZTUtYjkxYy04M2IwMzZlMmUwYTc6V1hLeXQ3cWRlYVFoRzFzZFF2NVdrM3JqTk9EN3l0aXRMc3d5';
-	var API_URL = 'http://lcboapi.com/products?access_key=';
+	var API_URL = 'http://lcboapi.com/products/?access_key=';
 	var isDead = '&where_not=is_discontinued';
 	var perPage = '&per_page=100';
 	var endpoint = API_URL + API_KEY + isDead + perPage;
@@ -84,11 +87,12 @@ app.factory('products', ['$http', '$q', function ($http, $q) {
 
 			//			make ajax request, add search params
 			proxy.params.reqUrl = proxy.params.reqUrl + query;
+
+			console.log(proxy.params.reqUrl);
 			$http(proxy)
-			//			on success send data, on error reject message
+			//			on success send data, on error reject message, reset search params
 			.then(def.resolve, def.reject);
 			proxy.params.reqUrl = '' + endpoint;
-			console.log(proxy.params.reqUrl);
 			return def.promise;
 		}
 	};
