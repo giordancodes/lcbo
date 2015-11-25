@@ -82,7 +82,6 @@ app.factory('products', ['$http', '$q', function ($http, $q) {
 			$http(proxy)
 			//			on success send data, on error reject message
 			.then(def.resolve, def.reject);
-
 			return def.promise;
 		},
 		searchSwills: function searchSwills(query) {
