@@ -53,7 +53,8 @@ app.controller('MainController', ['$scope', 'products', ($scope, products) => {
 	},
 		
 	products.getSwills().then((data) => {
-		console.log(data);
+		console.log(data.data.result);
+		return data.data.result;
 	})
 }]);
 
@@ -64,7 +65,7 @@ app.factory('products', ['$http', '$q', ($http, $q) => {
 	let isDead = '&where_not=is_discontinued';
 	let perPage = '&per_page=100';
 	let type = '&q=';
-	let endpoint = API_URL + API_KEY + isDead + perPage;
+	let endpoint = API_URL + API_KEY + type + isDead + perPage;
 	let proxy = {
 			method: 'GET',
 			url: 'http://proxy.hackeryou.com',
