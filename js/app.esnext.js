@@ -49,8 +49,7 @@ app.controller('MainController', ['$scope', 'products', ($scope, products) => {
 				}
 		}
 		searchSelection = searchSelection.join(',');
-		searchSelection = searchSelection.replace(/,/g, '');
-		if($scope.swill !== undefined){
+		if($scope.swill !== undefined && $scope.swill !== 'allTheBooze'){
 			searchSelection = searchSelection + '&q=' + $scope.swill;
 		}
 		console.log(searchSelection);
@@ -72,7 +71,7 @@ app.factory('products', ['$http', '$q', ($http, $q) => {
 	const API_URL = 'http://lcboapi.com/products?access_key=';
 	let isDead = '&where_not=is_discontinued';
 	let perPage = '&per_page=100';
-	let endpoint = API_URL + API_KEY + isDead + perPage;
+	let endpoint = API_URL + API_KEY + isDead + perPage + '&where=';
 	let proxy = {
 			method: 'GET',
 			url: 'http://proxy.hackeryou.com',
