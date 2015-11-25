@@ -18,22 +18,22 @@ app.controller('MainController', ['$scope', 'products', function ($scope, produc
 	//	model for checkbox inputs 	
 	$scope.checkboxModel = {
 		onSale: {
-			'&=has_limited_time_offer=': false
+			'has_limited_time_offer': false
 		},
 		bonusMiles: {
-			'&=has_bonus_reward_miles=': false
+			'has_bonus_reward_miles': false
 		},
 		clearance: {
-			'&=has_clearance_sale=': false
+			'has_clearance_sale': false
 		},
 		promo: {
-			'&=has_value_added_promotion=': false
+			'has_value_added_promotion': false
 		},
 		seasonal: {
-			'&=is_seasonal=': false
+			'is_seasonal': false
 		},
 		kosher: {
-			'&=is_kosher=': false
+			'is_kosher': false
 		}
 	};
 
@@ -44,14 +44,17 @@ app.controller('MainController', ['$scope', 'products', function ($scope, produc
 
 		for (var key in $scope.checkboxModel) {
 			for (var item in $scope.checkboxModel[key]) {
-				searchSelection.push(item, $scope.checkboxModel[key][item]);
+				if ($scope.checkboxModel[key][item] === true) {
+					searchSelection.push(item);
+				}
 			}
 		}
-		searchSelection = searchSelection.join();
+		searchSelection = searchSelection.join(',');
 		searchSelection = searchSelection.replace(/,/g, '');
 		if ($scope.swill !== undefined) {
 			searchSelection = searchSelection + '&q=' + $scope.swill;
 		}
+		console.log(searchSelection);
 
 		products.getSwills(searchSelection).then(function (data) {
 			console.log(data);
@@ -67,7 +70,7 @@ app.controller('MainController', ['$scope', 'products', function ($scope, produc
 // ajax calls
 app.factory('products', ['$http', '$q', function ($http, $q) {
 	var API_KEY = 'MDo3NTJjYzBmMC04ZWU2LTExZTUtYjkxYy04M2IwMzZlMmUwYTc6V1hLeXQ3cWRlYVFoRzFzZFF2NVdrM3JqTk9EN3l0aXRMc3d5';
-	var API_URL = 'http://lcboapi.com/products/?access_key=';
+	var API_URL = 'http://lcboapi.com/products?access_key=';
 	var isDead = '&where_not=is_discontinued';
 	var perPage = '&per_page=100';
 	var endpoint = API_URL + API_KEY + isDead + perPage;
