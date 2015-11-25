@@ -49,12 +49,14 @@ app.controller('MainController', ['$scope', 'products', ($scope, products) => {
 			};
 		searchSelection = searchSelection.join();
 		searchSelection = searchSelection.replace(/,/g, '');
-		searchSelection = searchSelection + '&q=' + $scope.swill;
+		if($scope.swill !== undefined){
+			searchSelection = searchSelection + '&q=' + $scope.swill;
+		};
 
 		console.log(searchSelection);
 	},
 		
-	products.getSwills($scope.swill).then((data) => {
+	products.getSwills($scope.searchSelection).then((data) => {
 		
 		console.log(data.data.result);
 		return data.data.result;
@@ -79,17 +81,13 @@ app.factory('products', ['$http', '$q', ($http, $q) => {
 	return {
 		getSwills(query) {
 			let def = $q.defer();
-//			make ajax request
+//			make ajax request, add search params
+			proxy.params.reqUrl = proxy.params.reqUrl + query;
+			console.log(proxy.params.reqUrl);
 			$http(proxy)
 //			on success send data, on error reject message
-				.then(def.resolve,def.reject);			
+				.then(def.resolve,def.reject);
 			return def.promise;
-		},
-		
-		searchSwills(query){
-			let def = $q.defer();
-			
-			$http(proxy)
 		}
 		
 	}
