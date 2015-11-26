@@ -1,6 +1,6 @@
 'use strict';
 
-//init app
+//initialize app
 var app = angular.module('swillApp', ['ui.router']);
 
 //config stateprovider
@@ -23,17 +23,11 @@ app.controller('MainController', ['$scope', 'products', function ($scope, produc
 		bonusMiles: {
 			'has_bonus_reward_miles': false
 		},
-		clearance: {
-			'has_clearance_sale': false
-		},
 		promo: {
 			'has_value_added_promotion': false
 		},
 		seasonal: {
 			'is_seasonal': false
-		},
-		kosher: {
-			'is_kosher': false
 		}
 	};
 

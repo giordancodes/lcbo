@@ -1,4 +1,4 @@
-//init app
+//initialize app
 let app = angular.module('swillApp', ['ui.router']);
 
 //config stateprovider
@@ -22,17 +22,11 @@ app.controller('MainController', ['$scope', 'products', ($scope, products) => {
 		bonusMiles :{
 			'has_bonus_reward_miles': false
 		},
-		clearance :{
-			'has_clearance_sale': false
-		},
 		promo :{
 			'has_value_added_promotion': false
 		},
 		seasonal :{
 			'is_seasonal': false
-		},
-		kosher :{
-			'is_kosher': false
 		}
 	};
 	
