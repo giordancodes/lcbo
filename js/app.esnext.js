@@ -45,9 +45,9 @@ app.controller('MainController', ['$scope', 'products', ($scope, products) => {
 		}
 		
 //		turn searchSelection array into string, add &where= if boxes are checked
-		console.log(checkBoxUrl);
 		checkBoxUrl = checkBoxUrl.join(',');
-		if (checkBoxUrl !== []){
+		console.log(checkBoxUrl);
+		if (_.isEmpty(checkBoxUrl) === false){
 			searchSelection = searchSelection + '&where=' + checkBoxUrl;}
 		
 		console.log(searchSelection);
@@ -59,7 +59,6 @@ app.controller('MainController', ['$scope', 'products', ($scope, products) => {
 		
 //		pass along searchSelection to call
 		products.getSwills(searchSelection).then((data) => {
-			console.log(data);
 			searchSelection = [];
 			console.log(data.data.result);
 			return data.data.result;
