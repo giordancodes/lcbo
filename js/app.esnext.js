@@ -33,8 +33,8 @@ app.controller('MainController', ['$scope', 'products', ($scope, products) => {
 //		form submit
 	$scope.formSubmit = () => {
 		let searchSelection = [];
-//		loop through each checkbox and pass checked criteria through to ajax call
-					
+		
+//		loop through each checkbox and pass checked criteria through to ajax call			
 		for (let key in $scope.checkboxModel){
 				for (let item in $scope.checkboxModel[key]){
 					if($scope.checkboxModel[key][item] === true){
@@ -42,10 +42,19 @@ app.controller('MainController', ['$scope', 'products', ($scope, products) => {
 					}
 				}
 		}
+		
+//		turn searchSelection array into string
 		searchSelection = searchSelection.join(',');
-		if($scope.swill !== undefined && $scope.swill !== 'allTheBooze'){
+		
+//			add type of swill if $scope.swill has had user input
+		if($scope.swill !== undefined){
 			searchSelection = searchSelection + '&q=' + $scope.swill;
 		}
+//			check if any boxes are checked, then add search string to accomodate ajax call	
+		if ($scope.swill !== undefined){
+			searchSelection = searchSelection + '&where=';
+		}
+		
 		console.log(searchSelection);
 
 		products.getSwills(searchSelection).then((data) => {
@@ -65,7 +74,7 @@ app.factory('products', ['$http', '$q', ($http, $q) => {
 	const API_URL = 'http://lcboapi.com/products?access_key=';
 	let isDead = '&where_not=is_discontinued';
 	let perPage = '&per_page=100';
-	let endpoint = API_URL + API_KEY + isDead + perPage + '&where=';
+	let endpoint = API_URL + API_KEY + isDead + perPage;
 	let proxy = {
 			method: 'GET',
 			url: 'http://proxy.hackeryou.com',
@@ -78,7 +87,6 @@ app.factory('products', ['$http', '$q', ($http, $q) => {
 		getSwills(query) {
 			let def = $q.defer(),
 					proxyQuery = '';
-			console.log(query);
 
 //			make ajax request, add search params
 			proxy.params.reqUrl = proxy.params.reqUrl + query;
