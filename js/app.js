@@ -34,30 +34,32 @@ app.controller('MainController', ['$scope', 'products', function ($scope, produc
 	//		form submit
 	$scope.formSubmit = function () {
 		var searchSelection = [];
+		var checkBoxUrl = [];
 
 		//		loop through each checkbox and pass checked criteria through to ajax call			
 		for (var key in $scope.checkboxModel) {
 			for (var item in $scope.checkboxModel[key]) {
 				if ($scope.checkboxModel[key][item] === true) {
-					searchSelection.push(item);
+					checkBoxUrl.push(item);
 				}
 			}
 		}
 
-		//		turn searchSelection array into string
-		searchSelection = searchSelection.join(',');
-
-		//			add type of swill if $scope.swill has had user input
-		if ($scope.swill !== undefined) {
-			searchSelection = searchSelection + '&q=' + $scope.swill;
-		}
-		//			check if any boxes are checked, then add search string to accomodate ajax call	
-		if ($scope.swill !== undefined) {
-			searchSelection = searchSelection + '&where=';
+		//		turn searchSelection array into string, add &where= if boxes are checked
+		console.log(checkBoxUrl);
+		checkBoxUrl = checkBoxUrl.join(',');
+		if (checkBoxUrl !== []) {
+			searchSelection = searchSelection + '&where=' + checkBoxUrl;
 		}
 
 		console.log(searchSelection);
 
+		//			add type of swill if $scope.swill has had user input or ignore if they choose all the booze
+		if ($scope.swill !== undefined && $scope.swill !== 'allTheBooze') {
+			searchSelection = searchSelection + '&q=' + $scope.swill;
+		}
+
+		//		pass along searchSelection to call
 		products.getSwills(searchSelection).then(function (data) {
 			console.log(data);
 			searchSelection = [];
