@@ -183,7 +183,35 @@ section.selection{
 
 .results{
 	position: relative;
-	padding: 10rem;
+	padding: 4rem 2rem;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: flex-start;
+	.result{
+		background: rgba(0,0,0,0.2);
+		padding: 1.5rem;
+		width: 50%;
+		h3{
+			line-height: 1.2;
+		}
+		p{
+			line-height: 1.5;
+			font-size: 1.2rem;
+		}
+	}
+	img{
+	}
+}
+
+//backToTop backToTop backToTop backToTop backToTop backToTop backToTop
+
+.backToTop {
+	position: fixed;
+	bottom: 6%;
+	right: 1%;
+	font-size: 3rem;
+	z-index: 9999;
 }
 
 //footer footer footer footer footer footer footer footer footer footer 

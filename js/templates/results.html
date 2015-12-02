@@ -1,7 +1,10 @@
 <div class="item">
 	<h3>{{product.name}}</h3>
-	<p>{{product.package}}</p>
-	<p>{{(product.price_in_cents / 100) | currency:"$":2}}</p>
-	<p>{{(product.price_per_liter_of_alcohol_in_cents / 100) | currency:"$":2}}</p>
+	<p>Swill Type: {{product.secondary_category}}</p>
+	<p>Package Type: {{product.package}}</p>
+	<p>Price: {{(product.price_in_cents / 100) | currency:"$":2}}</p>
+	<p>Price Per Liter of Alcohol: {{(product.price_per_liter_of_alcohol_in_cents / 100) | currency:"$":2}}</p>
+	<p>Serving Suggestion: {{product.serving_suggestion}}</p>
+	<p>Tasting Note: {{product.tasting_note}}</p>
 	<img ng-src={{product.image_thumb_url}} alt="{{product.name}}">
 </div>

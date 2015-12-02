@@ -45,16 +45,19 @@ app.controller('MainController', ['$scope', 'products', ($scope, products) => {
 				}
 		}
 		
-		searchSelection = [];
+		searchSelection = {
+			where: '',
+			q: ''
+		};
 		
 //		turn searchSelection array into string, add &where= if boxes are checked
 		checkBoxUrl = checkBoxUrl.join(',');
 		if (_.isEmpty(checkBoxUrl) === false){
-			searchSelection = searchSelection + '&where=' + checkBoxUrl;}
+			searchSelection['where'] = searchSelection['where'] + checkBoxUrl;}
 				
 //			add type of swill if $scope.swill has had user input or ignore if they choose all the booze
 		if($scope.swill !== undefined && $scope.swill !== 'allTheBooze'){
-			searchSelection = '&q=' + $scope.swill + searchSelection;
+			searchSelection['q'] =  $scope.swill;
 		}
 		
 //		pass along searchSelection to ajax call
@@ -80,15 +83,18 @@ app.directive('singleProduct', () => {
 // ajax calls
 app.factory('products', ['$http', '$q', ($http, $q) => {
 	const API_KEY = 'MDo3NTJjYzBmMC04ZWU2LTExZTUtYjkxYy04M2IwMzZlMmUwYTc6V1hLeXQ3cWRlYVFoRzFzZFF2NVdrM3JqTk9EN3l0aXRMc3d5';
-	const API_URL = 'http://lcboapi.com/products?access_key=';
+	const API_URL = 'http://lcboapi.com/products';
 	let isDead = '&where_not=is_discontinued';
 	let perPage = '&per_page=100';
-	let endpoint = API_URL + API_KEY + isDead + perPage;
+	let endpoint = API_URL;
 	const proxy = {
 			method: 'GET',
 			url: 'http://proxy.hackeryou.com',
 			params:{
-				reqUrl: `${endpoint}`
+				reqUrl: `${API_URL}`,
+				access_key: API_KEY,
+				per_page: 100,
+				isDead: false
 			}
 		};
 	
@@ -98,17 +104,13 @@ app.factory('products', ['$http', '$q', ($http, $q) => {
 
 //			make ajax request, add search params
 			let proxyCopy = proxy;
-			console.log(proxyCopy.params.reqUrl);
-			proxyCopy.params.reqUrl = proxy.params.reqUrl;
-			proxyCopy.params.reqUrl = proxyCopy.params.reqUrl + query;
-			console.log(proxyCopy.params.reqUrl);
+			Object.assign(proxyCopy.params, query);
 			console.log(query);
 //			send search params to $http
 			$http(proxyCopy)
 			
 //			on success send data, on error reject message, reset search params
 				.then(def.resolve, def.reject);
-//			proxy.params.reqUrl = `${endpoint}`;
 			return def.promise;
 		}
 		
