@@ -65,7 +65,6 @@ app.controller('MainController', ['$scope', 'products', ($scope, products) => {
 			
 //			populate results on screen
 			
-			
 			return data.data.result[0];
 		},(err) => {
 			console.log(err);
@@ -101,8 +100,9 @@ app.factory('products', ['$http', '$q', ($http, $q) => {
 
 //			make ajax request, add search params
 			proxy.params.reqUrl = proxy.params.reqUrl + query;
-			
 			console.log(proxy.params.reqUrl);
+			
+//			send search params to $http
 			$http(proxy)
 			
 //			on success send data, on error reject message, reset search params
