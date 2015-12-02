@@ -50,18 +50,18 @@ app.controller('MainController', ['$scope', 'products', ($scope, products) => {
 		console.log(checkBoxUrl);
 		if (_.isEmpty(checkBoxUrl) === false){
 			searchSelection = searchSelection + '&where=' + checkBoxUrl;}
-		
-		console.log(searchSelection);
-		
+				
 //			add type of swill if $scope.swill has had user input or ignore if they choose all the booze
 		if($scope.swill !== undefined && $scope.swill !== 'allTheBooze'){
-			searchSelection = searchSelection + '&q=' + $scope.swill;
+			searchSelection = '&q=' + $scope.swill + searchSelection;
 		}
 		
-//		pass along searchSelection to call
+//		pass along searchSelection to ajax call
+		console.log(searchSelection);
 		products.getSwills(searchSelection).then((data) => {
 			searchSelection = [];
 			console.log(data.data.result[0]);
+			console.log(data.data.result);
 			
 //			populate results on screen
 			
@@ -97,17 +97,18 @@ app.factory('products', ['$http', '$q', ($http, $q) => {
 	
 	return {
 		getSwills(query) {
-			let def = $q.defer(),
-					proxyQuery = '';
+			let def = $q.defer();
 
 //			make ajax request, add search params
 			proxy.params.reqUrl = proxy.params.reqUrl + query;
 			
 			console.log(proxy.params.reqUrl);
 			$http(proxy)
+			
 //			on success send data, on error reject message, reset search params
-				.then(def.resolve,def.reject);
+				.then(def.resolve, def.reject);
 			proxy.params.reqUrl = `${endpoint}`;
+			console.log(def.promise);
 			return def.promise;
 		}
 		
