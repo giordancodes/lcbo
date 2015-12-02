@@ -32,6 +32,12 @@ app.controller('MainController', ['$scope', 'products', function ($scope, produc
 
 	};
 
+	//	back to top function
+	$scope.backToTop = function () {
+		$location.hash('top');
+		$anchorScroll();
+	};
+
 	//		form submit
 	$scope.formSubmit = function () {
 		var searchSelection = [];

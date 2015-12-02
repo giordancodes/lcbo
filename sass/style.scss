@@ -205,10 +205,11 @@ section.selection{
 			line-height: 1.5;
 			font-size: 1.4rem;
 			text-align: left;
+			letter-spacing: .1rem;
 			span{
 				color: $white;
 				font-size: 1.6rem;
-				margin-left: .2rem;
+				letter-spacing: .1rem;
 			}
 		}
 	}
@@ -240,9 +241,10 @@ section.selection{
 .backToTop {
 	position: fixed;
 	bottom: 6%;
-	right: 1%;
-	font-size: 3rem;
+	right: 2%;
+	font-size: 4rem;
 	z-index: 9999;
+	color: $white;
 }
 
 //footer footer footer footer footer footer footer footer footer footer 
