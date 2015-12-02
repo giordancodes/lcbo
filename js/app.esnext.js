@@ -61,7 +61,6 @@ app.controller('MainController', ['$scope', 'products', ($scope, products) => {
 		}
 		
 //		pass along searchSelection to ajax call
-		console.log(searchSelection);
 		products.getSwills(searchSelection).then((data) => {
 			console.log(data.data.result[0]);
 			$scope.products = data.data.result;
