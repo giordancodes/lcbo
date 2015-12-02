@@ -29,6 +29,7 @@ app.controller('MainController', ['$scope', 'products', function ($scope, produc
 		seasonal: {
 			'is_seasonal': false
 		}
+
 	};
 
 	//		form submit
@@ -62,13 +63,23 @@ app.controller('MainController', ['$scope', 'products', function ($scope, produc
 		//		pass along searchSelection to call
 		products.getSwills(searchSelection).then(function (data) {
 			searchSelection = [];
-			console.log(data.data.result);
-			return data.data.result;
+			console.log(data.data.result[0]);
+
+			//			populate results on screen
+
+			return data.data.result[0];
 		}, function (err) {
 			console.log(err);
 		});
 	};
 }]);
+
+app.directive('singleProduct', function () {
+	return {
+		restrict: 'E',
+		templateUrl: 'js/templates/results.html'
+	};
+});
 
 // ajax calls
 app.factory('products', ['$http', '$q', function ($http, $q) {
