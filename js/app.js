@@ -101,9 +101,10 @@ app.factory('products', ['$http', '$q', function ($http, $q) {
 			var def = $q.defer();
 
 			//			make ajax request, add search params
+			console.log(proxy.params.reqUrl);
 			proxy.params.reqUrl = proxy.params.reqUrl + query;
 			console.log(proxy.params.reqUrl);
-
+			console.log(proxy);
 			//			send search params to $http
 			$http(proxy)
 
