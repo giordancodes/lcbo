@@ -7,7 +7,7 @@ app.config(($stateProvider) => {
 		.state('index', {
 			url: '',
 			controller: 'MainController',
-			templateUrl: 'js/templates/results.html'
+			templateUrl: 'js/templates/MainController.html'
 	})
 });
 
@@ -47,7 +47,6 @@ app.controller('MainController', ['$scope', 'products', ($scope, products) => {
 		
 //		turn searchSelection array into string, add &where= if boxes are checked
 		checkBoxUrl = checkBoxUrl.join(',');
-		console.log(checkBoxUrl);
 		if (_.isEmpty(checkBoxUrl) === false){
 			searchSelection = searchSelection + '&where=' + checkBoxUrl;}
 				
@@ -62,10 +61,9 @@ app.controller('MainController', ['$scope', 'products', ($scope, products) => {
 			searchSelection = [];
 			console.log(data.data.result[0]);
 			console.log(data.data.result);
-			
+			$scope.products = data.data.result;
 //			populate results on screen
 			
-			return data.data.result[0];
 		},(err) => {
 			console.log(err);
 		});
@@ -86,7 +84,7 @@ app.factory('products', ['$http', '$q', ($http, $q) => {
 	let isDead = '&where_not=is_discontinued';
 	let perPage = '&per_page=100';
 	let endpoint = API_URL + API_KEY + isDead + perPage;
-	let proxy = {
+	const proxy = {
 			method: 'GET',
 			url: 'http://proxy.hackeryou.com',
 			params:{
@@ -99,16 +97,15 @@ app.factory('products', ['$http', '$q', ($http, $q) => {
 			let def = $q.defer();
 
 //			make ajax request, add search params
-			console.log(proxy.params.reqUrl);
-			proxy.params.reqUrl = proxy.params.reqUrl + query;
-			console.log(proxy.params.reqUrl);
-			console.log(proxy);
+			let proxyCopy = proxy;
+			proxyCopy.params.reqUrl + query;
+			console.log(proxyCopy.params.reqUrl);
 //			send search params to $http
-			$http(proxy)
+			$http(proxyCopy)
 			
 //			on success send data, on error reject message, reset search params
 				.then(def.resolve, def.reject);
-			proxy.params.reqUrl = `${endpoint}`;
+//			proxy.params.reqUrl = `${endpoint}`;
 			console.log(def.promise);
 			return def.promise;
 		}

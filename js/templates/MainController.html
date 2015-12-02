@@ -1,7 +1,54 @@
+	<section class="selection">
+		<form ng-submit="formSubmit()" >
+			<div class="wrapper">
+				<h3>I'm looking for:</h3>
+				<select name="swill" ng-model="swill" id="swill">
+					<option value="choose" disabled>Choose Swill...</option>
+					<option value="allTheBooze">All the Booze</option>
+					<option value="beer">Beer</option>
+					<option value="redWine">Red Wine</option>
+					<option value="whiteWine">White Wine</option>
+					<option value="whiskey">Whiskey</option>
+					<option value="vodka">Vodka</option>
+					<option value="rum">Rum</option>
+					<option value="coolers">Coolers</option>
+				</select>
+			</div>
+			<div class="selectionTitle">
+				<div class="wrapper">
+					<h2>That meets these criteria:</h2>
+				</div>
+			</div>
+				<div class="wrapper checkboxes">
+					<label for="onSale"><input type="checkbox" ng-model="checkboxModel.onSale['has_limited_time_offer']">On Sale</label>
+					<label for="bonusMiles"><input type="checkbox" ng-model="checkboxModel.bonusMiles['has_bonus_reward_miles']">Bonus Reward Miles</label>
+					<label for="promo"><input type="checkbox" ng-model="checkboxModel.promo['has_value_added_promotion']">Added Promo</label>
+					<label for="seasonal"><input type="checkbox" ng-model="checkboxModel.seasonal['is_seasonal']">Seasonal</label>
+				</div>
+			<div class="selectionTitle">
+				<div class="wrapper">
+					<h2>Price per liter of alcohol in cents less than:</h2>
+				</div>
+			</div>
+			<div class="inputArea wrapper">
+				<input type="number" placeholder="Price in cents...">
+			</div>
+			<div class="selectionTitle">
+				<div class="wrapper">
+					<h2>Price per liter of liquid in cents less than:</h2>
+				</div>
+			</div>
+			<div class="inputArea wrapper">
+				<input type="number" placeholder="Price in cents...">
+			</div>
+			<div class="slurp">
+				<button type="submit" value="Submit">Slurp!</button>
+			</div>
+		</form>
 <section class="results">
-	<app-item
+	<single-product
 		class="result"
 		ng-repeat="product in products">
 		
-	</app-item>
+	</single-product>
 </section>
