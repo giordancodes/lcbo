@@ -45,6 +45,8 @@ app.controller('MainController', ['$scope', 'products', ($scope, products) => {
 				}
 		}
 		
+		searchSelection = [];
+		
 //		turn searchSelection array into string, add &where= if boxes are checked
 		checkBoxUrl = checkBoxUrl.join(',');
 		if (_.isEmpty(checkBoxUrl) === false){
@@ -58,9 +60,7 @@ app.controller('MainController', ['$scope', 'products', ($scope, products) => {
 //		pass along searchSelection to ajax call
 		console.log(searchSelection);
 		products.getSwills(searchSelection).then((data) => {
-			searchSelection = [];
 			console.log(data.data.result[0]);
-			console.log(data.data.result);
 			$scope.products = data.data.result;
 //			populate results on screen
 			
@@ -98,15 +98,17 @@ app.factory('products', ['$http', '$q', ($http, $q) => {
 
 //			make ajax request, add search params
 			let proxyCopy = proxy;
-			proxyCopy.params.reqUrl + query;
 			console.log(proxyCopy.params.reqUrl);
+			proxyCopy.params.reqUrl = proxy.params.reqUrl;
+			proxyCopy.params.reqUrl = proxyCopy.params.reqUrl + query;
+			console.log(proxyCopy.params.reqUrl);
+			console.log(query);
 //			send search params to $http
 			$http(proxyCopy)
 			
 //			on success send data, on error reject message, reset search params
 				.then(def.resolve, def.reject);
 //			proxy.params.reqUrl = `${endpoint}`;
-			console.log(def.promise);
 			return def.promise;
 		}
 		

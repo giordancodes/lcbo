@@ -1,6 +1,7 @@
-<div>
-	{{product}}
-<!--
-	
--->
+<div class="item">
+	<h3>{{product.name}}</h3>
+	<p>{{product.package}}</p>
+	<p>{{(product.price_in_cents / 100) | currency:"$":2}}</p>
+	<p>{{(product.price_per_liter_of_alcohol_in_cents / 100) | currency:"$":2}}</p>
+	<img ng-src={{product.image_thumb_url}} alt="{{product.name}}">
 </div>
