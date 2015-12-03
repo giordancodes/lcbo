@@ -27,6 +27,9 @@ app.controller('MainController', ['$scope', 'products', ($scope, products) => {
 		},
 		seasonal :{
 			'is_seasonal': false
+		},
+		kosher :{
+			'is_kosher': false
 		}
 	
 	};

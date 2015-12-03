@@ -1,7 +1,7 @@
 <div class="item">
 	<div class="itemTitle">
 		<h3>{{product.name}}</h3>
-		<div class="itemImg"><img ng-src={{product.image_thumb_url}} alt="{{product.name}}">
+		<div class="itemImg"><img ng-hide="product.image_thumb_url === null"ng-src={{product.image_thumb_url}} alt="{{product.name}}">
 		</div>
 	</div>
 	<div class="itemDesc">
@@ -11,8 +11,9 @@
 		<p>Price: <span>{{(product.price_in_cents / 100) | currency:"$":2}}</span></p>
 		<p>Price Per Liter of Alcohol: <span>{{(product.price_per_liter_of_alcohol_in_cents / 100) | currency:"$":2}}</span></p>
 		<p ng-hide="product.bonus_reward_miles === 0">Bonus Reward Miles: <span>{{product.bonus_reward_miles}}</span></p>
-		<p ng-hide="product.bonus_reward_miles_ends_on === null">Bonus Reward Miles Ends: <span>{{product.bonus_reward_miles_ends_on | date}}</span></p>
+		<p ng-hide="product.bonus_reward_miles_ends_on === null">Bonus Reward Miles Ends:<br><span>{{product.bonus_reward_miles_ends_on | date}}</span></p>
 		<p ng-hide="product.value_added_promotion_description === null">Current Added Promo: <span>{{product.value_added_promotion_description}}</span></p>
 		<p ng-hide="product.limited_time_offer_savings_in_cents === 0">Current Savings: <span>{{product.limited_time_offer_savings_in_cents / 100 | currency:"$":2}}</span></p>
+		<p ng-hide="product.is_kosher === false"><span>This Product Is Kosher</span></p>
 	</div>
 </div>

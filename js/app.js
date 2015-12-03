@@ -28,6 +28,9 @@ app.controller('MainController', ['$scope', 'products', function ($scope, produc
 		},
 		seasonal: {
 			'is_seasonal': false
+		},
+		kosher: {
+			'is_kosher': false
 		}
 
 	};
