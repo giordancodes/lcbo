@@ -204,8 +204,12 @@ section.selection{
 		p{
 			line-height: 1.5;
 			font-size: 1.4rem;
-			text-align: left;
+			text-align: right;
 			letter-spacing: .1rem;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			align-items: center;
 			span{
 				color: $white;
 				font-size: 1.6rem;
