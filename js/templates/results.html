@@ -7,6 +7,7 @@
 	<div class="itemDesc">
 		<p>Swill Type: <span>{{product.secondary_category}}</span></p>
 		<p>Package Type: <span>{{product.package}}</span></p>
+		<p>Alcohol Content: <span>{{product.alcohol_content / 100}}%</span></p>
 		<p ng-hide="product.serving_suggestion === null">Serving Suggestion: <br><span>{{product.serving_suggestion}}</span></p>
 		<p>Price: <span>{{(product.price_in_cents / 100) | currency:"$":2}}</span></p>
 		<p>Price Per Liter of Alcohol: <span>{{(product.price_per_liter_of_alcohol_in_cents / 100) | currency:"$":2}}</span></p>
