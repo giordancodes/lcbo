@@ -1,0 +1,69 @@
+	<section class="selection">
+		<div class="backToTop"><a ng-click="backToTop()">^</a></div>
+		
+<!--		form-->
+		
+		<form ng-submit="formSubmit()">
+			<div class="wrapper" id="top">
+				<h3>I'm looking for:</h3>
+				<select name="swill" ng-model="swill" id="swill">
+					<option value="choose" disabled>Choose Swill...</option>
+					<option value="allTheBooze">All the Booze</option>
+					<option value="spirits">All the Spirits</option>
+					<option value="beer">All the Beers</option>
+					<option value="ale">Ale</option>
+					<option value="lager">Lager</option>
+					<option value="hybrid">Hybrid Beers</option>
+					<option value="cider">Cider</option>
+					<option value="red+wine">Red Wine</option>
+					<option value="white+wine">White Wine</option>
+					<option value="rose+wine">Rosé Wine</option>
+					<option value="sparkling+wine">Sparkling Wine</option>
+					<option value="champagne">Champagne</option>
+					<option value="vodka">Vodka</option>
+					<option value="whiskey">Whiskey</option>
+					<option value="tequila">Tequila</option>
+					<option value="gin">Gin</option>
+					<option value="rum">Rum</option>
+					<option value="brandy">Brandy</option>
+					<option value="cognac">Cognac</option>
+					<option value="liqueur">Liqueur</option>
+					<option value="soju">Soju</option>
+					<option value="eau+de+vie">Eau de Vie</option>
+					<option value="coolers">Coolers</option>
+					<option value="specialty">Specialty</option>
+					<option value="gift+and+sampler+packs">Gift and Sampler Packs</option>
+				</select>
+			</div>
+			<div class="selectionTitle">
+				<div class="wrapper">
+					<h2>That meets these criteria:</h2>
+				</div>
+			</div>
+				<div class="wrapper checkboxes">
+					<label for="onSale"><input type="checkbox" ng-model="checkboxModel.onSale['has_limited_time_offer']">On Sale</label>
+					<label for="bonusMiles"><input type="checkbox" ng-model="checkboxModel.bonusMiles['has_bonus_reward_miles']">Bonus Reward Miles</label>
+					<label for="promo"><input type="checkbox" ng-model="checkboxModel.promo['has_value_added_promotion']">Added Promo</label>
+					<label for="seasonal"><input type="checkbox" ng-model="checkboxModel.seasonal['is_seasonal']">Seasonal</label>
+					<label for="kosher"><input type="checkbox" ng-model="checkboxModel.kosher['is_kosher']">Kosher</label>
+				</div>
+				
+<!--			slurp!!-->
+		
+			<div class="slurp">
+				<button type="submit" value="Submit">Slurp!</button>
+			</div>
+			
+<!--			/slurp-->
+	
+		</form>
+		
+<!--		/form-->
+
+<section class="results wrapper">
+	<single-product
+		class="result"
+		ng-repeat="product in products">
+		
+	</single-product>
+</section>

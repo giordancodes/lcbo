@@ -9,6 +9,10 @@ app.config(function ($stateProvider) {
 		url: '',
 		controller: 'MainController',
 		templateUrl: 'js/templates/MainController.html'
+	}).state('single', {
+		url: '/single/:id',
+		controller: 'SingleController',
+		templateUrl: 'js/templates/SingleController.html'
 	});
 });
 
@@ -81,6 +85,8 @@ app.controller('MainController', ['$scope', 'products', function ($scope, produc
 		});
 	};
 }]);
+
+app.controller('SingleController', function ($scope, products, $stateParams) {});
 
 app.directive('singleProduct', function () {
 	return {
