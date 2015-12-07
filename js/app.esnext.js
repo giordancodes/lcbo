@@ -72,7 +72,7 @@ app.controller('MainController', ['$scope', 'products', ($scope, products) => {
 			searchSelection['where'] = searchSelection['where'] + checkBoxUrl;}
 				
 //			add type of swill if $scope.swill has had user input or ignore if they choose all the booze
-		if($scope.swill !== undefined && $scope.swill !== 'allTheBooze'){
+		if($scope.swill !== undefined && $scope.swill !== 'allTheBooze' && $scope.swill !== 'choose'){
 			searchSelection['q'] =  $scope.swill;
 		}
 		
