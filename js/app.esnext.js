@@ -19,6 +19,8 @@ app.config(($stateProvider) => {
 //main controller
 app.controller('MainController', ['$scope', 'products', ($scope, products) => {
 		
+	$scope.swill = 'choose';
+	
 //	model for checkbox inputs 	
 	$scope.checkboxModel = {
 		onSale :{
