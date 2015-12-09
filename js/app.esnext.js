@@ -80,6 +80,11 @@ app.controller('MainController', ['$scope', 'products', ($scope, products) => {
 		products.getSwills(searchSelection).then((data) => {
 			console.log(data.data.result[0]);
 			$scope.products = data.data.result;
+			console.log($scope.products);
+			
+			if($scope.products[0] === undefined){
+				alert('Sorry, nothing meets your criteria! Please broaden your search.');
+			}
 //			if error...
 		},(err) => {
 			console.log(err);
