@@ -5,7 +5,7 @@
 $brown: #BA8800;
 $black: #0B0101;
 $green: #89933B; 
-$white: #CAC3B9;
+$white: #fcf5e8;
 $cyan: rgba(0,255,255,.6);
 
 $questrial: 'Questrial', sans-serif;
@@ -329,6 +329,9 @@ footer{
 }
 
 @media all and (min-width: 767px) {
+	html{
+		font-size: 85%;
+	}
 	section.info .wrapper, #top, .checkboxes{
 		width: 70%;
 	}

@@ -17,7 +17,7 @@ app.config(function ($stateProvider) {
 });
 
 //main controller
-app.controller('MainController', ['$scope', 'products', function ($scope, products) {
+app.controller('MainController', ['$scope', 'products', '$location', '$anchorScroll', function ($scope, products, $location, $anchorScroll) {
 
 	$scope.swill = 'choose';
 
