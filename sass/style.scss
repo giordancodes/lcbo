@@ -78,6 +78,11 @@ p{
 	color: $black;
 }
 
+.fa-chevron-circle-up{
+	color: $white;
+	font-size: 3rem;
+}
+
 //inputs/buttons inputs/buttons inputs/buttons inputs/buttons inputs/buttons
 
 select{
@@ -263,9 +268,8 @@ section.selection{
 
 .backToTop {
 	position: fixed;
-	bottom: 6%;
+	bottom: 10%;
 	right: 2%;
-	font-size: 4rem;
 	z-index: 9999;
 	color: $white;
 	cursor: pointer;

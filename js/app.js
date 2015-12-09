@@ -43,6 +43,7 @@ app.controller('MainController', ['$scope', 'products', '$location', '$anchorScr
 
 	//	back to top function
 	$scope.backToTop = function () {
+		$anchorScroll.yOffset = 30;
 		$location.hash('top');
 		$anchorScroll();
 	};
