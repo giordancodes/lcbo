@@ -6,7 +6,7 @@
 			<div class="wrapper" id="top">
 				<h3>I'm looking for:</h3>
 				<select name="swill" ng-model="swill" id="swill">
-					<option value="choose" disabled>Choose Swill...</option>
+					<option value="choose" disabled>Choose Libation...</option>
 					<option value="allTheBooze">All the Booze</option>
 					<option value="spirits">All the Spirits</option>
 					<option value="beer">All the Beers</option>
@@ -55,7 +55,7 @@
 		
 <!--		/form-->
 
-<section class="results wrapper">
+<section class="results wrapper" id="results">
 	<single-product
 		class="result"
 		ng-repeat="product in products | orderBy: 'price_per_liter_of_alcohol_in_cents'">

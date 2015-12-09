@@ -19,7 +19,7 @@ app.config(($stateProvider) => {
 //main controller
 app.controller('MainController', ['$scope', 'products', '$location', '$anchorScroll', ($scope, products, $location, $anchorScroll) => {
 		
-	$scope.swill = 'choose';
+	$scope.swill = 'allTheBooze';
 	
 //	model for checkbox inputs 	
 	$scope.checkboxModel = {
@@ -79,9 +79,12 @@ app.controller('MainController', ['$scope', 'products', '$location', '$anchorScr
 		
 //		pass along searchSelection to ajax call
 		products.getSwills(searchSelection).then((data) => {
-			console.log(data.data.result[0]);
 			$scope.products = data.data.result;
-			console.log($scope.products);
+			
+//			scroll to results
+			$anchorScroll.yOffset = -30;
+			$location.hash('results');
+			$anchorScroll();
 			
 			if($scope.products[0] === undefined){
 				alert('Sorry, nothing meets your criteria! Please broaden your search.');
