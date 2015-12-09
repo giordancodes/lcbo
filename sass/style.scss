@@ -327,3 +327,9 @@ footer{
 		}
 	}
 }
+
+@media all and (min-width: 767px) {
+	section.info .wrapper, #top, .checkboxes{
+		width: 70%;
+	}
+}
