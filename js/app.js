@@ -49,8 +49,13 @@ app.controller('MainController', ['$scope', 'products', function ($scope, produc
 
 	//		form submit
 	$scope.formSubmit = function () {
-		var searchSelection = [];
+		var searchSelection = {};
 		var checkBoxUrl = [];
+
+		searchSelection = {
+			where: '',
+			q: ''
+		};
 
 		//		loop through each checkbox and pass checked criteria through to ajax call			
 		for (var key in $scope.checkboxModel) {
@@ -61,18 +66,13 @@ app.controller('MainController', ['$scope', 'products', function ($scope, produc
 			}
 		}
 
-		searchSelection = {
-			where: '',
-			q: ''
-		};
-
 		//		turn searchSelection array into string, add &where= if boxes are checked
 		checkBoxUrl = checkBoxUrl.join(',');
 		if (_.isEmpty(checkBoxUrl) === false) {
 			searchSelection['where'] = searchSelection['where'] + checkBoxUrl;
 		}
 
-		//			add type of swill if $scope.swill has had user input or ignore if they choose all the booze
+		//			add type of swill if $scope.swill has had user input or ignore if they choose all the booze. if nothing chosen display all the booze
 		if ($scope.swill !== undefined && $scope.swill !== 'allTheBooze' && $scope.swill !== 'choose') {
 			searchSelection['q'] = $scope.swill;
 		}
@@ -81,15 +81,17 @@ app.controller('MainController', ['$scope', 'products', function ($scope, produc
 		products.getSwills(searchSelection).then(function (data) {
 			console.log(data.data.result[0]);
 			$scope.products = data.data.result;
-			//			populate results on screen
+			//			if error...
 		}, function (err) {
 			console.log(err);
 		});
 	};
 }]);
 
+//controller for single item
 app.controller('SingleController', function ($scope, products, $stateParams) {});
 
+//directive for displaying results in MainController
 app.directive('singleProduct', function () {
 	return {
 		restrict: 'E',

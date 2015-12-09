@@ -1,9 +1,18 @@
+<!--.item-->
 <div class="item">
+
+<!--.itemTitle-->
 	<div class="itemTitle">
 		<h3>{{product.name}}</h3>
+		
+<!--		.itemImg-->
 		<div class="itemImg"><img ng-hide="product.image_thumb_url === null"ng-src={{product.image_thumb_url}} alt="{{product.name}}">
 		</div>
+<!--		/.itemImg-->
 	</div>
+<!--	/.itemTitle-->
+
+<!--.itemDesc-->
 	<div class="itemDesc">
 		<p>Swill Type: <span>{{product.secondary_category}}</span></p>
 		<p>Package Type: <span>{{product.package}}</span></p>
@@ -18,4 +27,7 @@
 		<p ng-hide="product.limited_time_offer_ends_on === null">Savings Ends On: <span>{{product.limited_time_offer_ends_on | date}}</span></p>
 		<p ng-hide="product.is_kosher === false"><span>This Product Is Kosher</span></p>
 	</div>
+<!--	/.itemDesc-->
+
 </div>
+<!--/.item-->
