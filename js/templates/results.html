@@ -15,16 +15,16 @@
 <!--.itemDesc-->
 	<div class="itemDesc">
 		<p>Swill Type: <span>{{product.secondary_category}}</span></p>
-		<p>Package Type: <span>{{product.package}}</span></p>
+		<p>Package Type: <br><span>{{product.package}}</span></p>
 		<p>Alcohol Content: <span>{{product.alcohol_content / 100}}%</span></p>
 		<p ng-hide="product.serving_suggestion === null">Serving Suggestion: <br><span>{{product.serving_suggestion}}</span></p>
-		<p>Price: <span>{{(product.price_in_cents / 100) | currency:"$":2}}</span></p>
-		<p>Price Per Liter of Alcohol: <span>{{(product.price_per_liter_of_alcohol_in_cents / 100) | currency:"$":2}}</span></p>
-		<p ng-hide="product.bonus_reward_miles === 0">Bonus Reward Miles: <span>{{product.bonus_reward_miles}}</span></p>
-		<p ng-hide="product.bonus_reward_miles_ends_on === null">Bonus Reward Miles Ends:<br><span>{{product.bonus_reward_miles_ends_on | date}}</span></p>
-		<p ng-hide="product.value_added_promotion_description === null">Current Added Promo: <br><span>{{product.value_added_promotion_description}}</span></p>
-		<p ng-hide="product.limited_time_offer_savings_in_cents === 0">Current Savings: <span>{{product.limited_time_offer_savings_in_cents / 100 | currency:"$":2}}</span></p>
-		<p ng-hide="product.limited_time_offer_ends_on === null">Savings Ends On: <span>{{product.limited_time_offer_ends_on | date}}</span></p>
+		<p>Price: <span class="price">{{(product.price_in_cents / 100) | currency:"$":2}}</span></p>
+		<p>Price Per Liter of Alcohol: <span class="deal">{{(product.price_per_liter_of_alcohol_in_cents / 100) | currency:"$":2}}</span></p>
+		<p ng-hide="product.bonus_reward_miles === 0">Bonus Reward Miles: <span class="deal">{{product.bonus_reward_miles}}</span></p>
+		<p ng-hide="product.bonus_reward_miles_ends_on === null">Bonus Reward Miles Ends:<br><span class="end">{{product.bonus_reward_miles_ends_on | date}}</span></p>
+		<p ng-hide="product.value_added_promotion_description === null">Current Added Promo: <br><span class="deal">{{product.value_added_promotion_description}}</span></p>
+		<p ng-hide="product.limited_time_offer_savings_in_cents === 0">Current Savings: <span class="deal">{{product.limited_time_offer_savings_in_cents / 100 | currency:"$":2}}</span></p>
+		<p ng-hide="product.limited_time_offer_ends_on === null">Savings Ends On: <span class="end">{{product.limited_time_offer_ends_on | date}}</span></p>
 		<p ng-hide="product.is_kosher === false"><span>This Product Is Kosher</span></p>
 	</div>
 <!--	/.itemDesc-->

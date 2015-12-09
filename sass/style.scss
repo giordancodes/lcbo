@@ -5,7 +5,8 @@
 $brown: #BA8800;
 $black: #0B0101;
 $green: #89933B; 
-$white: #CAC3B9; 
+$white: #CAC3B9;
+$cyan: rgba(0,255,255,.6);
 
 $questrial: 'Questrial', sans-serif;
 $inconsolata: 'Inconsolata';
@@ -186,6 +187,8 @@ section.selection{
 	padding: 2rem 0;
 }
 
+//results results results results results results results results results
+
 .results{
 	position: relative;
 	padding: 4rem 0;
@@ -220,8 +223,19 @@ section.selection{
 				font-size: 1.6rem;
 				letter-spacing: .1rem;
 			}
+			span.deal{
+				color: $cyan;
+			}
+			span.price{
+				color: yellowgreen;
+			}
+			span.end{
+				color: orange;
+			}
 		}
 	}
+	
+	
 	.itemDesc{
 		width: 100%;
 		border-top: solid 2px $brown;
