@@ -60,11 +60,30 @@
 <!--		/form-->
 
 <section class="result wrapper">
-	<single-store
-		class="resultStore"
+	<single-item
+		class="resultItem"
 		ng-repeat="product in products">
 		
-	<h2>{{product.city}}</h2>
+		<h2>{{product.name}}</h2>
 	
+	</single-item>
+	
+	<single-store
+		ng-repeat="store in stores"
+		class="storeResult">
+		
+<!--		.store-->
+		<div class="store">
+			<p>Quantity: {{store.quantity}}</p>
+			<p>Updated on: {{store.updated_on | date }}</p>
+			<p>Location: {{store.name}}</p>		
+			<p>{{store.address_line_1}}, {{store.city}}</p>		
+			<p>Phone Number: {{store.telephone}}</p>
+			<p>Meters Away from You: {{store.distance_in_meters}}</p>
+			<p ng-hide="store.has_wheelchair_accessability === false">Wheelchair Accessible</p>
+		</div>
+<!--		/.store-->
 	</single-store>
+	
+
 </section>

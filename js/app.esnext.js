@@ -102,8 +102,9 @@ app.controller('SingleController', ($scope, products, $stateParams) => {
 
 //	pass product id to $http
 	products.getSingle($stateParams.id).then((data) => {
-		console.log(data);
-		$scope.products = data;
+		console.log(data.data);
+		$scope.products = data.data;
+		$scope.stores = data.data.result;
 	})
 	
 });
@@ -166,7 +167,6 @@ app.factory('products', ['$http', '$q', ($http, $q) => {
 			let proxyStoreCopy = proxy_stores;
 //			Object.assign(proxyStoreCopy.params, query);
 			proxyStoreCopy.params.product_id = query;
-			console.log(proxyStoreCopy.params);
 			
 //			send product id to $http
 			$http(proxyStoreCopy)
