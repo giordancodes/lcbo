@@ -122,7 +122,7 @@ app.factory('products', ['$http', '$q', ($http, $q) => {
 			params:{
 				reqUrl: `${API_URL}`,
 				access_key: API_KEY,
-				per_page: 100,
+				per_page: 42,
 				isDead: false
 			}
 		};

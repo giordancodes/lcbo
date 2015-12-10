@@ -341,3 +341,17 @@ footer{
 		width: 70%;
 	}
 }
+
+@media all and (min-width: 852px) {
+	.results .result {
+		width: calc(50% - 2rem);
+		margin: 1rem;
+	}
+	.checkboxes {
+		justify-content: flex-start;
+		label{
+			width: 33.33%;
+		}
+	}
+}
+
