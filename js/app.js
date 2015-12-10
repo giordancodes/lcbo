@@ -201,14 +201,6 @@ app.factory('products', ['$http', '$q', '$geolocation', function ($http, $q, $ge
 
 			var proxyStoreCopy = proxy_stores;
 
-			$geolocation.getCurrentPosition({
-				timeout: 60000
-			}).then(function (position) {
-				proxyStoreCopy.params.lat = position.coords.latitude;
-				proxyStoreCopy.params.lon = position.coords.longitude;
-				console.log(proxyStoreCopy.params.lon);
-			});
-
 			proxyStoreCopy.params.product_id = query;
 
 			//			send product id to $http

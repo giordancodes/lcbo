@@ -2,9 +2,9 @@
 
 //variables variables variables variables variables variables variables
 
-$brown: #BA8800;
+$brown: #909580;
 $black: #0B0101;
-$green: #89933B; 
+$green: #498467; 
 $white: #fcf5e8;
 $cyan: rgba(0,255,255,.7);
 
@@ -78,9 +78,13 @@ p{
 	color: $black;
 }
 
-.fa-chevron-circle-up{
+.fa-chevron-circle-up, .fa-backward{
 	color: $white;
 	font-size: 3rem;
+}
+
+.fa-backward {
+	margin-right: 1rem;
 }
 
 //inputs/buttons inputs/buttons inputs/buttons inputs/buttons inputs/buttons
