@@ -13,7 +13,7 @@ app.config(($stateProvider) => {
 			url: '/single/:id',
 			controller: 'SingleController',
 			templateUrl: 'js/templates/SingleController.html'
-	})
+	});
 });
 
 //main controller
@@ -99,9 +99,13 @@ app.controller('MainController', ['$scope', 'products', '$location', '$anchorScr
 //controller for single item
 app.controller('SingleController', ($scope, products, $stateParams) => {
 	
+	products.getSingle($stateParams.id).then((data) => {
+		console.log(data);
+	})
+	
 });
 
-//directive for displaying results in MainController
+//directive for displaying singular result in SingleController
 app.directive('singleProduct', () => {
 	return{
 		restrict: 'E',
@@ -112,15 +116,24 @@ app.directive('singleProduct', () => {
 // ajax calls
 app.factory('products', ['$http', '$q', ($http, $q) => {
 	const API_KEY = 'MDo3NTJjYzBmMC04ZWU2LTExZTUtYjkxYy04M2IwMzZlMmUwYTc6V1hLeXQ3cWRlYVFoRzFzZFF2NVdrM3JqTk9EN3l0aXRMc3d5';
-	const API_URL = 'http://lcboapi.com/products';
+	const API_URL_PRODUCTS = 'http://lcboapi.com/products';
+	const API_URL_STORES = 'http://lcboapi.com/stores';
 	let isDead = '&where_not=is_discontinued';
-	let perPage = '&per_page=100';
-	let endpoint = API_URL;
-	const proxy = {
+	const proxy_products = {
 			method: 'GET',
 			url: 'http://proxy.hackeryou.com',
 			params:{
-				reqUrl: `${API_URL}`,
+				reqUrl: `${API_URL_PRODUCTS}`,
+				access_key: API_KEY,
+				per_page: 42,
+				isDead: false
+			}
+		};
+	const proxy_stores = {
+			method: 'GET',
+			url: 'http://proxy.hackeryou.com',
+			params:{
+				reqUrl: `${API_URL_STORES}`,
 				access_key: API_KEY,
 				per_page: 42,
 				isDead: false
@@ -132,16 +145,30 @@ app.factory('products', ['$http', '$q', ($http, $q) => {
 			let def = $q.defer();
 
 //			make ajax request, add search params
-			let proxyCopy = proxy;
+			let proxyCopy = proxy_products;
 			Object.assign(proxyCopy.params, query);
-			console.log(query);
 //			send search params to $http
 			$http(proxyCopy)
 			
 //			on success send data, on error reject message, reset search params
 				.then(def.resolve, def.reject);
 			return def.promise;
+		},
+	
+		getSingle(query){
+			let def = $q.defer();
+			console.log(query);
+
+			let proxyStoreCopy = proxy_stores;
+			console.log(proxyStoreCopy);
+			Object.assign(proxyStoreCopy.params, query);
+			$http(proxyStoreCopy)
+			
+//			on success send data, on error reject message, reset search params
+				.then(def.resolve, def.reject);
+			return def.promise;
 		}
-	}
+		
+	};
 
 }]);

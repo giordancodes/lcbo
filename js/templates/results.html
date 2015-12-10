@@ -3,10 +3,10 @@
 
 <!--.itemTitle-->
 	<div class="itemTitle">
-		<h3>{{product.name}}</h3>
+		<h3><a href="#/single/{{product.id}}">{{product.name}}</a></h3>
 		
 <!--		.itemImg-->
-		<div class="itemImg"><img ng-hide="product.image_thumb_url === null"ng-src={{product.image_thumb_url}} alt="{{product.name}}">
+		<div class="itemImg"><a href="#/single{{product.id}}"><img ng-hide="product.image_thumb_url === null"ng-src={{product.image_thumb_url}} alt="{{product.name}}"></a>
 		</div>
 <!--		/.itemImg-->
 
