@@ -244,7 +244,6 @@ section.selection{
 	.itemDesc{
 		width: 100%;
 		border-top: solid 2px $brown;
-
 	}
 	.itemImg{
 		text-align: center;
@@ -256,12 +255,42 @@ section.selection{
 	}
 }
 
+section.singleCtrl{
+	padding-top: 0;
+}
+
+.resultItem {
+	h1{
+		color: $white;
+		text-align: center;
+		padding-bottom: 1.5rem;
+	}
+	h2{
+		text-align: center;
+		padding-bottom: 1.5rem;
+		font-size: 2rem;
+	}
+}
+
+h3.inStockDesc{
+	text-align: center;
+	line-height: 1.5;
+	width: 100%;
+	padding-bottom: 1rem;
+}
+
 .itemTitle{
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: center;
 	padding-bottom: 1rem;
+}
+
+h2.again{
+	text-align: center;
+	font-size: 3rem;
+	padding-top: 3rem;
 }
 
 //backToTop backToTop backToTop backToTop backToTop backToTop backToTop

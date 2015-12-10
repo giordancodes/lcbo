@@ -99,13 +99,18 @@ app.controller('MainController', ['$scope', 'products', '$location', '$anchorScr
 }]);
 
 //controller for single item
-app.controller('SingleController', function ($scope, products, $stateParams) {
+app.controller('SingleController', function ($scope, $anchorScroll, $location, products, $stateParams) {
 
 	//	pass product id to $http
 	products.getSingle($stateParams.id).then(function (data) {
 		console.log(data.data);
 		$scope.products = data.data;
 		$scope.stores = data.data.result;
+
+		//			scroll to results
+		$anchorScroll.yOffset = 0;
+		$location.hash('resultItem');
+		$anchorScroll();
 	});
 });
 
