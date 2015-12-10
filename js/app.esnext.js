@@ -92,15 +92,18 @@ app.controller('MainController', ['$scope', 'products', '$location', '$anchorScr
 //			if error...
 		},(err) => {
 			console.log(err);
+			alert("Sorry, something's amiss! Please try again.")
 		});
 	}
 }]);
 
 //controller for single item
 app.controller('SingleController', ($scope, products, $stateParams) => {
-	
+
+//	pass product id to $http
 	products.getSingle($stateParams.id).then((data) => {
 		console.log(data);
+		$scope.products = data;
 	})
 	
 });
@@ -136,7 +139,9 @@ app.factory('products', ['$http', '$q', ($http, $q) => {
 				reqUrl: `${API_URL_STORES}`,
 				access_key: API_KEY,
 				per_page: 42,
-				isDead: false
+				isDead: false,
+				geo: 'm6j+0a5',
+				product_id: ''
 			}
 		};
 	
@@ -157,11 +162,13 @@ app.factory('products', ['$http', '$q', ($http, $q) => {
 	
 		getSingle(query){
 			let def = $q.defer();
-			console.log(query);
 
 			let proxyStoreCopy = proxy_stores;
-			console.log(proxyStoreCopy);
-			Object.assign(proxyStoreCopy.params, query);
+//			Object.assign(proxyStoreCopy.params, query);
+			proxyStoreCopy.params.product_id = query;
+			console.log(proxyStoreCopy.params);
+			
+//			send product id to $http
 			$http(proxyStoreCopy)
 			
 //			on success send data, on error reject message, reset search params
