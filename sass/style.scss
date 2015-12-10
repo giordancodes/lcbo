@@ -6,7 +6,7 @@ $brown: #BA8800;
 $black: #0B0101;
 $green: #89933B; 
 $white: #fcf5e8;
-$cyan: rgba(0,255,255,.6);
+$cyan: rgba(0,255,255,.7);
 
 $questrial: 'Questrial', sans-serif;
 $inconsolata: 'Inconsolata';
@@ -116,7 +116,7 @@ label{
 button{
 	background: $brown;
 	border: none;
-	padding: 1rem 3rem;
+	padding: 1.1rem 3rem;
 	color: $white;
 	font-family: $questrial;
 	font-weight: 900;
@@ -343,14 +343,52 @@ footer{
 }
 
 @media all and (min-width: 852px) {
+	section.info .wrapper{
+		width: 61%;
+	}
 	.results .result {
 		width: calc(50% - 2rem);
 		margin: 1rem;
 	}
+	section.selection{
+		max-width: 880px;
+		margin: 0 auto;
+	}
+	form{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		width: 70%;
+		margin: 0 auto;
+		&>*{
+			padding: 1rem;
+		}
+	}
+	#top{
+		width: 70%;
+		order: -1;
+		padding-right: 0;
+		select{
+			height: 3.7rem;
+			font-size: 1.4rem;
+		}
+	}
+	.slurp{
+		order: -1;
+		width: 30%;
+		padding: 0;
+		text-align: left;
+		height: 5rem;
+	}
 	.checkboxes {
 		justify-content: flex-start;
+		width: 100%;
+		padding: 1rem;
 		label{
-			width: 33.33%;
+			font-size: 1.6rem;
+			line-height: 1.4;
+			width: 50%;
 		}
 	}
 }
