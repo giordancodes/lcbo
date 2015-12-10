@@ -1,5 +1,5 @@
 //initialize app
-let app = angular.module('swillApp', ['ui.router']);
+let app = angular.module('swillApp', ['ui.router', 'ngGeolocation']);
 
 //config stateprovider
 app.config(($stateProvider) => {
@@ -98,13 +98,32 @@ app.controller('MainController', ['$scope', 'products', '$location', '$anchorScr
 }]);
 
 //controller for single item
-app.controller('SingleController', ($scope, $anchorScroll, $location, products, $stateParams) => {
+app.controller('SingleController', ($scope, $anchorScroll, $location, products, $stateParams, $geolocation) => {
 
+	$scope.backToTop = () => {
+		$anchorScroll.yOffset = 0;
+		$location.hash('top');
+		$anchorScroll();
+	};
+	
+	let location = {
+		lat: '',
+		lon: ''
+	}
+	
+////	log geolocation
+//	$geolocation.getCurrentPosition({
+//					timeout: 60000
+//			 }).then(function(position) {
+//						location.lat = position.coords.latitude;
+//						location.lon = position.coords.longitude;
+//			 });
+	
 //	pass product id to $http
 	products.getSingle($stateParams.id).then((data) => {
-		console.log(data.data);
 		$scope.products = data.data;
 		$scope.stores = data.data.result;
+		
 		
 //			scroll to results
 		$anchorScroll.yOffset = 0;
@@ -123,7 +142,7 @@ app.directive('singleProduct', () => {
 });
 
 // ajax calls
-app.factory('products', ['$http', '$q', ($http, $q) => {
+app.factory('products', ['$http', '$q', '$geolocation', ($http, $q, $geolocation) => {
 	const API_KEY = 'MDo3NTJjYzBmMC04ZWU2LTExZTUtYjkxYy04M2IwMzZlMmUwYTc6V1hLeXQ3cWRlYVFoRzFzZFF2NVdrM3JqTk9EN3l0aXRMc3d5';
 	const API_URL_PRODUCTS = 'http://lcboapi.com/products';
 	const API_URL_STORES = 'http://lcboapi.com/stores';
@@ -146,7 +165,8 @@ app.factory('products', ['$http', '$q', ($http, $q) => {
 				access_key: API_KEY,
 				per_page: 42,
 				isDead: false,
-				geo: 'm6j+0a5',
+				lat: '',
+				lon: '',
 				product_id: ''
 			}
 		};
@@ -158,6 +178,18 @@ app.factory('products', ['$http', '$q', ($http, $q) => {
 //			make ajax request, add search params
 			let proxyCopy = proxy_products;
 			Object.assign(proxyCopy.params, query);
+			
+			
+			let proxyStoreCopy = proxy_stores;
+			
+			$geolocation.getCurrentPosition({
+					timeout: 60000
+			 }).then(function(position) {
+						proxyStoreCopy.params.lat = position.coords.latitude;
+						proxyStoreCopy.params.lon = position.coords.longitude;
+						console.log(proxyStoreCopy.params.lon);
+			 })
+			
 //			send search params to $http
 			$http(proxyCopy)
 			
@@ -167,10 +199,19 @@ app.factory('products', ['$http', '$q', ($http, $q) => {
 		},
 	
 		getSingle(query){
+			
 			let def = $q.defer();
 
 			let proxyStoreCopy = proxy_stores;
-//			Object.assign(proxyStoreCopy.params, query);
+			
+			$geolocation.getCurrentPosition({
+					timeout: 60000
+			 }).then(function(position) {
+						proxyStoreCopy.params.lat = position.coords.latitude;
+						proxyStoreCopy.params.lon = position.coords.longitude;
+						console.log(proxyStoreCopy.params.lon);
+			 })
+			
 			proxyStoreCopy.params.product_id = query;
 			
 //			send product id to $http
