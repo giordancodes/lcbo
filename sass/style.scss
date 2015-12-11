@@ -398,6 +398,18 @@ footer{
 			height: 250px;
 		}
 	}
+	h3.wrapper{
+		width: 70%;
+		padding: 2rem 0;
+	}
+	select{
+		margin: 0;
+	}
+	.slurp{
+		width: 70%;
+		margin: 0 auto;
+		text-align: left;
+	}
 }
 
 @media all and (min-width: 852px) {
@@ -411,6 +423,9 @@ footer{
 	section.selection{
 		max-width: 880px;
 		margin: 0 auto;
+	}
+	h3.wrapper{
+		padding: 1rem;
 	}
 	form{
 		display: flex;
@@ -435,15 +450,12 @@ footer{
 	.slurp{
 		order: -1;
 		width: 30%;
-		padding: 0;
-		text-align: left;
-		height: 5rem;
 	}
 	.checkboxes {
 		justify-content: flex-start;
 		width: 100%;
 		padding: 1rem;
-		margin-top: -3rem;
+		margin-top: -1rem;
 		label{
 			font-size: 1.6rem;
 			line-height: 1.4;
