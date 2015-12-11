@@ -212,7 +212,7 @@ section.info{
 	align-items: flex-start;
 	.result{
 		background: rgba(0,0,0,0.2);
-		padding: 1.5rem;
+		padding: 1rem 1.5rem 0;
 		width: 100%;
 		border: solid 2px $brown;
 		margin: 1rem 0;
@@ -249,9 +249,6 @@ section.info{
 			span.promo{
 				width: 100%;
 			}
-		}
-		p.last{
-			margin-bottom: 0;
 		}
 	}
 	.itemDesc{
@@ -329,8 +326,20 @@ h2.again{
 .imgDiv{
 	text-align: center;
 	padding: 1rem 0;
+	img{
+		border-radius: 1rem;
+	}
 }
 
+.result .store{
+	p{
+		padding: 0;
+		text-align: left;
+	}
+	span{
+		width: 100%;
+	}
+}
 
 //footer footer footer footer footer footer footer footer footer footer 
 
