@@ -27,10 +27,10 @@
 		
 <!--		.store-->
 		<div class="store">
-			<p>Location: <span>{{store.name}}</span></p>		
-			<p><span>{{store.address_line_1}}, {{store.city}}</span></p>		
-			<p>Phone Number: <span><a href="tel:{{store.telephone}}">{{store.telephone}}</a></span></p>
-			<p>Quantity: <span class="deal">{{store.quantity}}</span></p>
+			<p>Location: <span><a title="Open in Maps" target="_blank" href="http://maps.google.com/?q={{store.address_line_1}}{{store.city}}">{{store.name}}</a></span></p>		
+			<p><span><a title="Open in Maps" target="_blank" href="http://maps.google.com/?q={{store.address_line_1}}{{store.city}}">{{store.address_line_1}}, {{store.city}}</a></span></p>		
+			<p>Phone Number: <span><a title="Dial this Number" href="tel:{{store.telephone}}">{{store.telephone}}</a></span></p>
+			<p>Quantity: <span class="end">{{store.quantity}}</span></p>
 			<p>Updated on: <span>{{store.updated_on | date }}</span></p>
 			<p ng-hide="store.distance_in_meters === undefined">Meters Away from You: <span>{{store.distance_in_meters}}</span></p>
 			<p ng-hide="store.has_wheelchair_accessability === false"><span>Is Wheelchair Accessible</span></p>
