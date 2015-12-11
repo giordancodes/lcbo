@@ -102,8 +102,8 @@ app.controller('MainController', ['$scope', 'products', '$location', '$anchorScr
 app.controller('SingleController', function ($scope, $anchorScroll, $location, products, $stateParams, $geolocation) {
 
 	$scope.backToTop = function () {
-		$anchorScroll.yOffset = 0;
-		$location.hash('top');
+		$anchorScroll.yOffset = -20;
+		$location.hash('header');
 		$anchorScroll();
 	};
 
@@ -185,7 +185,6 @@ app.factory('products', ['$http', '$q', '$geolocation', function ($http, $q, $ge
 			}).then(function (position) {
 				proxyStoreCopy.params.lat = position.coords.latitude;
 				proxyStoreCopy.params.lon = position.coords.longitude;
-				console.log(proxyStoreCopy.params.lon);
 			});
 
 			//			send search params to $http

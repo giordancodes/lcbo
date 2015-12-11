@@ -170,7 +170,7 @@ header{
 	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: center;
-	padding: 1.5rem;
+	padding: 1rem 1.5rem;
 	margin: 0 auto;
 	img{
 		height: 149px;
@@ -190,10 +190,6 @@ section{
 
 section.info{
 	background: $brown;
-}
-
-section.selection{
-	padding: 2rem 0;
 }
 
 .selectionTitle {
@@ -250,6 +246,12 @@ section.selection{
 			span.end{
 				color: orange;
 			}
+			span.promo{
+				width: 100%;
+			}
+		}
+		p.last{
+			margin-bottom: 0;
 		}
 	}
 	.itemDesc{
@@ -323,6 +325,12 @@ h2.again{
 		color: $white;
 	}
 }
+
+.imgDiv{
+	text-align: center;
+	padding: 1rem 0;
+}
+
 
 //footer footer footer footer footer footer footer footer footer footer 
 
@@ -413,6 +421,9 @@ footer{
 }
 
 @media all and (min-width: 852px) {
+	header{
+		padding-top: 3rem;
+	}
 	section.info .wrapper{
 		width: 61%;
 	}
