@@ -32,7 +32,7 @@
 			<p>Phone Number: <span><a title="Dial this Number" href="tel:{{store.telephone}}">{{store.telephone}}</a></span></p>
 			<p>Quantity: <span class="end">{{store.quantity}}</span></p>
 			<p>Updated on: <span>{{store.updated_on | date }}</span></p>
-			<p ng-hide="store.distance_in_meters === undefined">Meters Away from You: <span>{{store.distance_in_meters}}</span></p>
+			<p ng-hide="store.distance_in_meters === undefined">KM Away from You: <span>{{store.distance_in_meters / 1000}}</span></p>
 			<p ng-hide="store.has_wheelchair_accessability === false"><span>Is Wheelchair Accessible</span></p>
 		</div>
 <!--		/.store-->

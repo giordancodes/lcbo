@@ -31,7 +31,7 @@ a{
 	text-decoration: none;
 	color: $white;
 	transition: color .6s;
-	&:hover{
+	&:hover, &:focus{
 		color: $brown;
 	}
 }
@@ -130,9 +130,10 @@ button{
 	margin: 1rem 0;
 	font-size: 1.8rem;
 	border-radius: .5rem;
+	transition: all .6s;
 	&:hover, &:focus{
-		border: solid 1px $white;
-		color: $green;
+		color: $black;
+		background: $brown;
 	}
 }
 
@@ -314,6 +315,7 @@ h2.again{
 	cursor: pointer;
 	background: rgba(0,0,0,.3);
 	border-radius: 1rem;
+	padding: .5rem;
 }
 
 #top{
@@ -328,6 +330,7 @@ h2.again{
 	padding: 1rem 0;
 	img{
 		border-radius: 1rem;
+		max-height: 200px;
 	}
 }
 

@@ -19,6 +19,7 @@ app.config(function ($stateProvider) {
 //main controller
 app.controller('MainController', ['$scope', 'products', '$location', '$anchorScroll', function ($scope, products, $location, $anchorScroll) {
 
+	//	set default for dropdown menu
 	$scope.swill = 'allTheBooze';
 
 	//	model for checkbox inputs 	
@@ -38,13 +39,12 @@ app.controller('MainController', ['$scope', 'products', '$location', '$anchorScr
 		kosher: {
 			'is_kosher': false
 		}
-
 	};
 
 	//	back to top function
 	$scope.backToTop = function () {
 		$anchorScroll.yOffset = 30;
-		$location.hash('top');
+		$location.hash('header');
 		$anchorScroll();
 	};
 
@@ -87,10 +87,12 @@ app.controller('MainController', ['$scope', 'products', '$location', '$anchorScr
 			$location.hash('results');
 			$anchorScroll();
 
+			//			throw error if search returns nothing
 			if ($scope.products[0] === undefined) {
 				alert('Sorry, nothing meets your criteria! Please broaden your search.');
 			}
-			//			if error...
+
+			//			if general error...
 		}, function (err) {
 			console.log(err);
 			alert("Sorry, something's amiss! Please try again.");
@@ -111,14 +113,6 @@ app.controller('SingleController', function ($scope, $anchorScroll, $location, p
 		lat: '',
 		lon: ''
 	};
-
-	////	log geolocation
-	//	$geolocation.getCurrentPosition({
-	//					timeout: 60000
-	//			 }).then(function(position) {
-	//						location.lat = position.coords.latitude;
-	//						location.lon = position.coords.longitude;
-	//			 });
 
 	//	pass product id to $http
 	products.getSingle($stateParams.id).then(function (data) {
@@ -152,7 +146,8 @@ app.factory('products', ['$http', '$q', '$geolocation', function ($http, $q, $ge
 		params: {
 			reqUrl: '' + API_URL_PRODUCTS,
 			access_key: API_KEY,
-			per_page: 42,
+			per_page: 64,
+			page: '1',
 			isDead: false
 		}
 	};
@@ -180,6 +175,7 @@ app.factory('products', ['$http', '$q', '$geolocation', function ($http, $q, $ge
 
 			var proxyStoreCopy = proxy_stores;
 
+			//			get geolocation
 			$geolocation.getCurrentPosition({
 				timeout: 60000
 			}).then(function (position) {
@@ -194,6 +190,8 @@ app.factory('products', ['$http', '$q', '$geolocation', function ($http, $q, $ge
 			.then(def.resolve, def.reject);
 			return def.promise;
 		},
+
+		//		results for single item showing stores with stock
 		getSingle: function getSingle(query) {
 
 			var def = $q.defer();

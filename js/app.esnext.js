@@ -19,6 +19,7 @@ app.config(($stateProvider) => {
 //main controller
 app.controller('MainController', ['$scope', 'products', '$location', '$anchorScroll', ($scope, products, $location, $anchorScroll) => {
 		
+//	set default for dropdown menu
 	$scope.swill = 'allTheBooze';
 	
 //	model for checkbox inputs 	
@@ -38,13 +39,12 @@ app.controller('MainController', ['$scope', 'products', '$location', '$anchorScr
 		kosher :{
 			'is_kosher': false
 		}
-	
 	};
 	
 //	back to top function
 	$scope.backToTop = () => {
 		$anchorScroll.yOffset = 30;
-		$location.hash('top');
+		$location.hash('header');
 		$anchorScroll();
 	};
 	
@@ -86,10 +86,12 @@ app.controller('MainController', ['$scope', 'products', '$location', '$anchorScr
 			$location.hash('results');
 			$anchorScroll();
 			
+//			throw error if search returns nothing
 			if($scope.products[0] === undefined){
 				alert('Sorry, nothing meets your criteria! Please broaden your search.');
 			}
-//			if error...
+			
+			//			if general error...
 		},(err) => {
 			console.log(err);
 			alert("Sorry, something's amiss! Please try again.")
@@ -110,14 +112,6 @@ app.controller('SingleController', ($scope, $anchorScroll, $location, products, 
 		lat: '',
 		lon: ''
 	}
-	
-////	log geolocation
-//	$geolocation.getCurrentPosition({
-//					timeout: 60000
-//			 }).then(function(position) {
-//						location.lat = position.coords.latitude;
-//						location.lon = position.coords.longitude;
-//			 });
 	
 //	pass product id to $http
 	products.getSingle($stateParams.id).then((data) => {
@@ -153,7 +147,8 @@ app.factory('products', ['$http', '$q', '$geolocation', ($http, $q, $geolocation
 			params:{
 				reqUrl: `${API_URL_PRODUCTS}`,
 				access_key: API_KEY,
-				per_page: 42,
+				per_page: 64,
+				page: '1',
 				isDead: false
 			}
 		};
@@ -179,9 +174,9 @@ app.factory('products', ['$http', '$q', '$geolocation', ($http, $q, $geolocation
 			let proxyCopy = proxy_products;
 			Object.assign(proxyCopy.params, query);
 			
-			
 			let proxyStoreCopy = proxy_stores;
 			
+//			get geolocation
 			$geolocation.getCurrentPosition({
 					timeout: 60000
 			 }).then(function(position) {
@@ -197,6 +192,7 @@ app.factory('products', ['$http', '$q', '$geolocation', ($http, $q, $geolocation
 			return def.promise;
 		},
 	
+//		results for single item showing stores with stock
 		getSingle(query){
 			
 			let def = $q.defer();
