@@ -1,0 +1,659 @@
+/* line 1, /Users/psomatic/Sites/lcbo/sass/_setup.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
+  display: block; }
+
+/* line 1, /Users/psomatic/Sites/lcbo/sass/_setup.scss */
+audio, canvas, video {
+  display: inline-block; }
+
+/* line 1, /Users/psomatic/Sites/lcbo/sass/_setup.scss */
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+/* line 1, /Users/psomatic/Sites/lcbo/sass/_setup.scss */
+[hidden] {
+  display: none; }
+
+/* line 1, /Users/psomatic/Sites/lcbo/sass/_setup.scss */
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%; }
+
+/* line 1, /Users/psomatic/Sites/lcbo/sass/_setup.scss */
+a:focus {
+  outline: thin dotted; }
+
+/* line 1, /Users/psomatic/Sites/lcbo/sass/_setup.scss */
+a:active, a:hover {
+  outline: 0; }
+
+/* line 1, /Users/psomatic/Sites/lcbo/sass/_setup.scss */
+h1 {
+  font-size: 2em; }
+
+/* line 1, /Users/psomatic/Sites/lcbo/sass/_setup.scss */
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+/* line 1, /Users/psomatic/Sites/lcbo/sass/_setup.scss */
+b, strong {
+  font-weight: 700; }
+
+/* line 1, /Users/psomatic/Sites/lcbo/sass/_setup.scss */
+dfn {
+  font-style: italic; }
+
+/* line 1, /Users/psomatic/Sites/lcbo/sass/_setup.scss */
+mark {
+  background: #ff0;
+  color: #000; }
+
+/* line 1, /Users/psomatic/Sites/lcbo/sass/_setup.scss */
+code, kbd, pre, samp {
+  font-family: monospace, serif;
+  font-size: 1em; }
+
+/* line 1, /Users/psomatic/Sites/lcbo/sass/_setup.scss */
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word; }
+
+/* line 1, /Users/psomatic/Sites/lcbo/sass/_setup.scss */
+q {
+  quotes: \201C \201D \2018 \2019; }
+
+/* line 1, /Users/psomatic/Sites/lcbo/sass/_setup.scss */
+small {
+  font-size: 80%; }
+
+/* line 1, /Users/psomatic/Sites/lcbo/sass/_setup.scss */
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+/* line 1, /Users/psomatic/Sites/lcbo/sass/_setup.scss */
+sup {
+  top: -.5em; }
+
+/* line 1, /Users/psomatic/Sites/lcbo/sass/_setup.scss */
+sub {
+  bottom: -.25em; }
+
+/* line 1, /Users/psomatic/Sites/lcbo/sass/_setup.scss */
+img {
+  border: 0; }
+
+/* line 1, /Users/psomatic/Sites/lcbo/sass/_setup.scss */
+svg:not(:root) {
+  overflow: hidden; }
+
+/* line 1, /Users/psomatic/Sites/lcbo/sass/_setup.scss */
+fieldset {
+  border: 1px solid silver;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em; }
+
+/* line 1, /Users/psomatic/Sites/lcbo/sass/_setup.scss */
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0; }
+
+/* line 1, /Users/psomatic/Sites/lcbo/sass/_setup.scss */
+button, input {
+  line-height: normal; }
+
+/* line 2, /Users/psomatic/Sites/lcbo/sass/_setup.scss */
+button, html input[type=button], input[type=reset], input[type=submit] {
+  -webkit-appearance: button;
+  cursor: pointer; }
+
+/* line 2, /Users/psomatic/Sites/lcbo/sass/_setup.scss */
+button[disabled], input[disabled] {
+  cursor: default; }
+
+/* line 2, /Users/psomatic/Sites/lcbo/sass/_setup.scss */
+input[type=checkbox], input[type=radio] {
+  box-sizing: border-box;
+  padding: 0; }
+
+/* line 2, /Users/psomatic/Sites/lcbo/sass/_setup.scss */
+input[type=search] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box; }
+
+/* line 2, /Users/psomatic/Sites/lcbo/sass/_setup.scss */
+input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+/* line 2, /Users/psomatic/Sites/lcbo/sass/_setup.scss */
+textarea {
+  overflow: auto;
+  vertical-align: top; }
+
+/* line 2, /Users/psomatic/Sites/lcbo/sass/_setup.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* line 2, /Users/psomatic/Sites/lcbo/sass/_setup.scss */
+body, figure {
+  margin: 0; }
+
+/* line 2, /Users/psomatic/Sites/lcbo/sass/_setup.scss */
+legend, button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+/* line 4, /Users/psomatic/Sites/lcbo/sass/_setup.scss */
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0; }
+
+/* line 6, /Users/psomatic/Sites/lcbo/sass/_setup.scss */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/* line 16, /Users/psomatic/Sites/lcbo/sass/style.scss */
+html {
+  font-size: 62.5%; }
+
+/* line 20, /Users/psomatic/Sites/lcbo/sass/style.scss */
+body {
+  background: #498467;
+  font-family: "Questrial", sans-serif; }
+
+/* line 25, /Users/psomatic/Sites/lcbo/sass/style.scss */
+img {
+  max-width: 100%;
+  height: auto; }
+
+/* line 30, /Users/psomatic/Sites/lcbo/sass/style.scss */
+a {
+  text-decoration: none;
+  color: #fcf5e8;
+  transition: color 0.6s; }
+  /* line 34, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  a:hover, a:focus {
+    color: #909580; }
+
+/* line 41, /Users/psomatic/Sites/lcbo/sass/style.scss */
+h1 {
+  font-family: "Questrial", sans-serif;
+  font-size: 5rem;
+  font-weight: 400;
+  color: #0B0101;
+  margin: 0;
+  padding: 0; }
+  /* line 49, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  h1 a {
+    color: #0B0101; }
+
+/* line 54, /Users/psomatic/Sites/lcbo/sass/style.scss */
+h2 {
+  font-family: "Questrial", sans-serif;
+  font-size: 12px;
+  color: #fcf5e8;
+  letter-spacing: 1px;
+  font-weight: 100;
+  line-height: 15px;
+  margin: 0;
+  padding: 0; }
+
+/* line 65, /Users/psomatic/Sites/lcbo/sass/style.scss */
+h3 {
+  font-family: "Questrial", sans-serif;
+  font-size: 2rem;
+  color: #0B0101;
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 15px;
+  margin: 0;
+  padding: 0; }
+
+/* line 76, /Users/psomatic/Sites/lcbo/sass/style.scss */
+p {
+  font-family: "Questrial", sans-serif;
+  color: #0B0101; }
+
+/* line 81, /Users/psomatic/Sites/lcbo/sass/style.scss */
+.fa-chevron-circle-up, .fa-backward {
+  color: #fcf5e8;
+  font-size: 3rem; }
+
+/* line 86, /Users/psomatic/Sites/lcbo/sass/style.scss */
+.fa-backward {
+  margin-right: 1rem; }
+
+/* line 92, /Users/psomatic/Sites/lcbo/sass/style.scss */
+select {
+  border: none;
+  border-radius: 5px;
+  background: #909580;
+  color: #0B0101;
+  width: 100%;
+  height: 3rem;
+  margin: 2rem 0 0.5rem;
+  font-family: "Questrial", sans-serif;
+  font-size: 1.2rem;
+  padding-left: .5rem; }
+  /* line 103, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  select:focus {
+    border: solid 1px #fcf5e8; }
+
+/* line 108, /Users/psomatic/Sites/lcbo/sass/style.scss */
+input {
+  background: #909580;
+  border: none;
+  padding: 1rem; }
+
+/* line 114, /Users/psomatic/Sites/lcbo/sass/style.scss */
+label {
+  width: 50%;
+  padding: 1rem 0;
+  font-family: "Questrial", sans-serif;
+  font-size: 1.2rem;
+  color: #fcf5e8;
+  line-height: 13px; }
+
+/* line 123, /Users/psomatic/Sites/lcbo/sass/style.scss */
+button {
+  background: #0B0101;
+  border: none;
+  padding: 1.1rem 3rem;
+  color: #fcf5e8;
+  font-family: "Questrial", sans-serif;
+  font-weight: 900;
+  margin: 1rem 0;
+  font-size: 1.8rem;
+  border-radius: .5rem;
+  transition: all 0.6s; }
+  /* line 134, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  button:hover, button:focus {
+    color: #0B0101;
+    background: #909580; }
+
+/* line 140, /Users/psomatic/Sites/lcbo/sass/style.scss */
+[type='checkbox'] {
+  margin-right: .6rem; }
+
+/* line 144, /Users/psomatic/Sites/lcbo/sass/style.scss */
+[type='number'] {
+  background: #CAC3B9;
+  border-radius: 3px;
+  width: 100%;
+  height: 3rem; }
+
+/* line 151, /Users/psomatic/Sites/lcbo/sass/style.scss */
+.checkboxes {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem 0; }
+
+/* line 157, /Users/psomatic/Sites/lcbo/sass/style.scss */
+.slurp {
+  text-align: center; }
+
+/* line 161, /Users/psomatic/Sites/lcbo/sass/style.scss */
+.hidden {
+  display: none; }
+
+/* line 167, /Users/psomatic/Sites/lcbo/sass/style.scss */
+.wrapper {
+  margin: 0 auto;
+  max-width: 280px; }
+
+/* line 173, /Users/psomatic/Sites/lcbo/sass/style.scss */
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  margin: 0 auto; }
+  /* line 180, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  header img {
+    height: 149px; }
+  /* line 183, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  header h1 {
+    text-align: right;
+    padding: 0;
+    margin: 0; }
+
+/* line 192, /Users/psomatic/Sites/lcbo/sass/style.scss */
+section {
+  padding: 1rem 0; }
+
+/* line 196, /Users/psomatic/Sites/lcbo/sass/style.scss */
+section.info {
+  background: #909580; }
+
+/* line 200, /Users/psomatic/Sites/lcbo/sass/style.scss */
+.selectionTitle {
+  padding: 1rem 0;
+  background: #909580; }
+
+/* line 205, /Users/psomatic/Sites/lcbo/sass/style.scss */
+.inputArea {
+  padding: 2rem 0; }
+
+/* line 210, /Users/psomatic/Sites/lcbo/sass/style.scss */
+section.sort {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background: RGBA(147, 152, 129, 0.8);
+  z-index: 9999;
+  padding: 0; }
+  /* line 219, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  section.sort h2 {
+    text-align: center;
+    font-size: 1.4rem; }
+  /* line 223, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  section.sort button {
+    padding: .3rem;
+    margin: .3rem;
+    font-size: 1.6rem;
+    background: none;
+    color: #fcf5e8;
+    font-weight: 300;
+    letter-spacing: .2rem; }
+    /* line 231, /Users/psomatic/Sites/lcbo/sass/style.scss */
+    section.sort button:focus, section.sort button:hover {
+      background: #fcf5e8;
+      color: black; }
+
+/* line 240, /Users/psomatic/Sites/lcbo/sass/style.scss */
+.results {
+  position: relative;
+  padding: 4rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start; }
+  /* line 247, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  .results .result {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1rem 1.5rem 0;
+    width: 100%;
+    border: solid 2px #909580;
+    margin: 1rem 0; }
+    /* line 253, /Users/psomatic/Sites/lcbo/sass/style.scss */
+    .results .result h3 {
+      line-height: 1.2;
+      font-size: 2.2rem;
+      color: #fcf5e8;
+      width: 50%;
+      padding: 0 0.5rem; }
+    /* line 260, /Users/psomatic/Sites/lcbo/sass/style.scss */
+    .results .result p {
+      line-height: 1.5;
+      font-size: 1.4rem;
+      text-align: right;
+      letter-spacing: .1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center; }
+      /* line 269, /Users/psomatic/Sites/lcbo/sass/style.scss */
+      .results .result p span {
+        color: #fcf5e8;
+        font-size: 1.6rem;
+        letter-spacing: .1rem; }
+      /* line 274, /Users/psomatic/Sites/lcbo/sass/style.scss */
+      .results .result p span.deal {
+        color: rgba(0, 255, 255, 0.7); }
+      /* line 277, /Users/psomatic/Sites/lcbo/sass/style.scss */
+      .results .result p span.price {
+        color: yellowgreen; }
+      /* line 280, /Users/psomatic/Sites/lcbo/sass/style.scss */
+      .results .result p span.end {
+        color: orange; }
+      /* line 283, /Users/psomatic/Sites/lcbo/sass/style.scss */
+      .results .result p span.promo {
+        width: 100%; }
+  /* line 288, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  .results .itemDesc {
+    width: 100%;
+    border-top: solid 2px #909580; }
+  /* line 292, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  .results .itemImg {
+    text-align: center;
+    width: 30%;
+    padding: 0 0.5rem; }
+    /* line 296, /Users/psomatic/Sites/lcbo/sass/style.scss */
+    .results .itemImg img {
+      border: solid 1px #0B0101; }
+
+/* line 302, /Users/psomatic/Sites/lcbo/sass/style.scss */
+section.singleCtrl {
+  padding-top: 0; }
+
+/* line 307, /Users/psomatic/Sites/lcbo/sass/style.scss */
+.resultItem h1 {
+  color: #fcf5e8;
+  text-align: center;
+  padding-bottom: 1.5rem; }
+
+/* line 312, /Users/psomatic/Sites/lcbo/sass/style.scss */
+.resultItem h2 {
+  text-align: center;
+  padding-bottom: 1.5rem;
+  font-size: 2rem; }
+
+/* line 319, /Users/psomatic/Sites/lcbo/sass/style.scss */
+h3.inStockDesc {
+  text-align: center;
+  line-height: 1.5;
+  width: 100%;
+  padding-bottom: 1rem; }
+
+/* line 326, /Users/psomatic/Sites/lcbo/sass/style.scss */
+.itemTitle {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem; }
+
+/* line 334, /Users/psomatic/Sites/lcbo/sass/style.scss */
+h2.again {
+  text-align: center;
+  font-size: 3rem;
+  padding-top: 3rem; }
+
+/* line 342, /Users/psomatic/Sites/lcbo/sass/style.scss */
+.backToTop {
+  position: fixed;
+  bottom: 10%;
+  right: 2%;
+  z-index: 9999;
+  color: #fcf5e8;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 1rem;
+  padding: .5rem; }
+
+/* line 354, /Users/psomatic/Sites/lcbo/sass/style.scss */
+#top {
+  margin: 0 auto; }
+  /* line 356, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  #top h3 {
+    color: #fcf5e8; }
+
+/* line 361, /Users/psomatic/Sites/lcbo/sass/style.scss */
+.imgDiv {
+  text-align: center;
+  padding: 1rem 0; }
+  /* line 364, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  .imgDiv img {
+    border-radius: 1rem;
+    max-height: 200px; }
+
+/* line 371, /Users/psomatic/Sites/lcbo/sass/style.scss */
+.result .store p {
+  padding: 0;
+  text-align: left; }
+
+/* line 375, /Users/psomatic/Sites/lcbo/sass/style.scss */
+.result .store span {
+  width: 100%; }
+
+/* line 382, /Users/psomatic/Sites/lcbo/sass/style.scss */
+footer {
+  background: #0B0101;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: #fcf5e8;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center; }
+  /* line 393, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  footer p {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    color: #fcf5e8; }
+  /* line 398, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  footer img {
+    height: 1.4rem;
+    margin-left: .5rem; }
+  /* line 402, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  footer .lcboCred {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0; }
+
+@media all and (min-width: 480px) {
+  /* line 413, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  html {
+    font-size: 80%; }
+  /* line 416, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  .wrapper {
+    max-width: 880px; }
+  /* line 419, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  header {
+    max-width: 880px; }
+    /* line 421, /Users/psomatic/Sites/lcbo/sass/style.scss */
+    header h1 {
+      font-size: 4.8rem; }
+  /* line 426, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  section {
+    padding-left: 2rem;
+    padding-right: 2rem; }
+  /* line 431, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  section.info h2 {
+    font-size: 1.6rem;
+    padding: .5rem 0; } }
+
+@media all and (min-width: 767px) {
+  /* line 439, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  html {
+    font-size: 85%; }
+  /* line 442, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  section.info .wrapper, #top, .checkboxes {
+    width: 70%; }
+  /* line 445, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  header {
+    justify-content: space-around; }
+    /* line 447, /Users/psomatic/Sites/lcbo/sass/style.scss */
+    header h1 {
+      font-size: 7.2rem; }
+    /* line 450, /Users/psomatic/Sites/lcbo/sass/style.scss */
+    header img {
+      height: 250px; }
+  /* line 454, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  h3.wrapper {
+    width: 70%;
+    padding: 2rem 0; }
+  /* line 458, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  select {
+    margin: 0; }
+  /* line 461, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  .slurp {
+    width: 70%;
+    margin: 0 auto;
+    text-align: left; } }
+
+@media all and (min-width: 852px) {
+  /* line 469, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  header {
+    padding-top: 3rem; }
+  /* line 472, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  section.info .wrapper {
+    width: 61%; }
+  /* line 475, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  .results .result {
+    width: calc(50% - 2rem);
+    margin: 1rem; }
+  /* line 479, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  section.selection {
+    max-width: 880px;
+    margin: 0 auto; }
+  /* line 483, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  h3.wrapper {
+    padding: 1rem; }
+  /* line 486, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    margin: 0 auto; }
+    /* line 493, /Users/psomatic/Sites/lcbo/sass/style.scss */
+    form > * {
+      padding: 1rem; }
+  /* line 497, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  #top {
+    width: 70%;
+    order: -1;
+    padding-right: 0; }
+    /* line 501, /Users/psomatic/Sites/lcbo/sass/style.scss */
+    #top select {
+      height: 3.7rem;
+      font-size: 1.4rem; }
+  /* line 506, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  .slurp {
+    order: -1;
+    width: 30%; }
+  /* line 510, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  .checkboxes {
+    justify-content: flex-start;
+    width: 100%;
+    padding: 1rem;
+    margin-top: -1rem; }
+    /* line 515, /Users/psomatic/Sites/lcbo/sass/style.scss */
+    .checkboxes label {
+      font-size: 1.6rem;
+      line-height: 1.4;
+      width: 50%; } }
+
+@media all and (max-width: 644px) {
+  /* line 525, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  section.sort button {
+    font-size: 1.2rem; } }
+
+@media all and (max-width: 320px) {
+  /* line 532, /Users/psomatic/Sites/lcbo/sass/style.scss */
+  section.sort button {
+    margin: .3rem 0; } }
+
+/*# sourceMappingURL=style.css.map */
