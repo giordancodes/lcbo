@@ -61,11 +61,11 @@
 <!--		/form-->
 
 <!--section.sort-->
-<section class="sort">
+<section class="sort hidden">
 
 	<button ng-click="order('price_in_cents')" ng-class="{reverse:reverse}">Price</button>
-	<button ng-click="order('price_per_liter_of_alcohol_in_cents')" ng-class="{reverse:reverse}">Price/l of Alcohol</button>
-	<button ng-click="order('alcohol_content')" ng-class="{reverse:reverse}">Alcohol Content</button>
+	<button ng-click="order('price_per_liter_of_alcohol_in_cents')" ng-class="{reverse:reverse}">$ per Liter</button>
+	<button ng-click="order('alcohol_content')" ng-class="{reverse:reverse}">Alcohol %</button>
 	<button ng-click="order('name')" ng-class="{reverse:reverse}">Product Name</button>
 	
 </section>

@@ -158,6 +158,10 @@ button{
 	text-align: center;
 }
 
+.hidden{
+	display: none;
+}
+
 //wraps/containers wraps/containers wraps/containers wraps/containers 
 
 .wrapper{
@@ -200,6 +204,35 @@ section.info{
 
 .inputArea {
 	padding: 2rem 0;
+}
+
+//section.sort section.sort section.sort section.sort section.sort
+section.sort{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background: RGBA(147, 152, 129, .8);
+	z-index: 9999;
+	padding: 0;
+	h2{
+		text-align: center;
+		font-size: 1.4rem;
+	}
+	button{
+		padding: .3rem;
+		margin: .3rem;
+		font-size: 1.6rem;
+		background: none;
+		color: $white;
+		font-weight: 300;
+		letter-spacing: .2rem;
+		&:focus, &:hover{
+			background: $white;
+			color: black;
+		}
+	}
 }
 
 //results results results results results results results results results
@@ -483,6 +516,14 @@ footer{
 			font-size: 1.6rem;
 			line-height: 1.4;
 			width: 50%;
+		}
+	}
+}
+
+@media all and (max-width: 644px) {
+	section.sort{
+		button{
+			font-size: 1.2rem;
 		}
 	}
 }

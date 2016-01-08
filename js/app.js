@@ -66,6 +66,8 @@ app.controller('MainController', ['$scope', 'products', '$location', '$anchorScr
 			q: ''
 		};
 
+		$('section.sort').removeClass('hidden');
+
 		//		loop through each checkbox and pass checked criteria through to ajax call			
 		for (var key in $scope.checkboxModel) {
 			for (var item in $scope.checkboxModel[key]) {
