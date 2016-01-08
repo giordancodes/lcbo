@@ -167,7 +167,7 @@ app.factory('products', ['$http', '$q', '$geolocation', ($http, $q, $geolocation
 			params:{
 				reqUrl: `${API_URL_STORES}`,
 				access_key: API_KEY,
-				per_page: 42,
+				per_page: 66,
 				isDead: false,
 				lat: '',
 				lon: '',
