@@ -48,6 +48,14 @@ app.controller('MainController', ['$scope', 'products', '$location', '$anchorScr
 		$anchorScroll();
 	};
 
+	//	sort function
+	$scope.predicate = 'price_per_liter_of_alcohol_in_cents';
+	$scope.reverse = true;
+	$scope.order = function (predicate) {
+		$scope.reverse = $scope.predicate === predicate ? !$scope.reverse : false;
+		$scope.predicate = predicate;
+	};
+
 	//		form submit
 	$scope.formSubmit = function () {
 		var searchSelection = {};
