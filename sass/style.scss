@@ -4,12 +4,13 @@
 
 $brown: #909580;
 $black: #0B0101;
-$green: #498467; 
+$green: #27ae60; 
 $white: #fcf5e8;
 $cyan: rgba(0,255,255,.7);
 
 $questrial: 'Questrial', sans-serif;
 $inconsolata: 'Inconsolata';
+$quick: 'Quicksand', sans-serif;
 
 //main styles main styles main styles main styles main styles main styles 
 
@@ -19,7 +20,7 @@ html{
 
 body{
 	background: $green;
-	font-family: $questrial;
+	font-family: $quick;
 }
 
 img{
@@ -39,7 +40,7 @@ a{
 //typography typography typography typography typography typography typography 
 
 h1{
-	font-family: $questrial;
+	font-family: $quick;
 	font-size: 5rem;
 	font-weight: 400;
 	color: $black;
@@ -52,7 +53,7 @@ h1{
 }
 
 h2{
-	font-family: $questrial;
+	font-family: $quick;
 	font-size: 12px;
 	color: $white;
 	letter-spacing: 1px;
@@ -63,7 +64,7 @@ h2{
 }
 
 h3{
-	font-family: $questrial;
+	font-family: $quick;
 	font-size: 2rem;
 	color: $black;
 	font-weight: 300;
@@ -74,7 +75,7 @@ h3{
 }
 
 p{
-	font-family: $questrial;
+	font-family: $quick;
 	color: $black;
 }
 
@@ -97,7 +98,7 @@ select{
 	width: 100%;
 	height: 3rem;
 	margin: 2rem 0 .5rem;
-	font-family: $questrial;
+	font-family: $quick;
 	font-size: 1.2rem;
 	padding-left: .5rem;
 	&:focus{
@@ -114,7 +115,7 @@ input{
 label{
 	width: 50%;
 	padding: 1rem 0;
-	font-family: $questrial;
+	font-family: $quick;
 	font-size: 1.2rem;
 	color: $white;
 	line-height: 13px;
@@ -125,7 +126,7 @@ button{
 	border: none;
 	padding: 1.1rem 3rem;
 	color: $white;
-	font-family: $questrial;
+	font-family: $quick;
 	font-weight: 900;
 	margin: 1rem 0;
 	font-size: 1.8rem;
